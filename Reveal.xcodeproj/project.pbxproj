@@ -13,6 +13,7 @@
 		03EF37772402EFFD00B04E6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03EF37762402EFFD00B04E6A /* Assets.xcassets */; };
 		03EF377A2402EFFD00B04E6A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03EF37792402EFFD00B04E6A /* Preview Assets.xcassets */; };
 		03EF377D2402EFFD00B04E6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03EF377B2402EFFD00B04E6A /* LaunchScreen.storyboard */; };
+		03EF37862403323100B04E6A /* GamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF37852403323100B04E6A /* GamesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		03EF37792402EFFD00B04E6A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		03EF377C2402EFFD00B04E6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03EF377E2402EFFD00B04E6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03EF37852403323100B04E6A /* GamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		03EF376F2402EFFA00B04E6A /* Reveal */ = {
 			isa = PBXGroup;
 			children = (
+				03EF3784240331ED00B04E6A /* Views */,
 				03EF37702402EFFA00B04E6A /* AppDelegate.swift */,
 				03EF37722402EFFA00B04E6A /* SceneDelegate.swift */,
 				03EF37742402EFFA00B04E6A /* ContentView.swift */,
@@ -73,6 +76,14 @@
 				03EF37792402EFFD00B04E6A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		03EF3784240331ED00B04E6A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				03EF37852403323100B04E6A /* GamesView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +159,7 @@
 			files = (
 				03EF37712402EFFA00B04E6A /* AppDelegate.swift in Sources */,
 				03EF37732402EFFA00B04E6A /* SceneDelegate.swift in Sources */,
+				03EF37862403323100B04E6A /* GamesView.swift in Sources */,
 				03EF37752402EFFA00B04E6A /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
