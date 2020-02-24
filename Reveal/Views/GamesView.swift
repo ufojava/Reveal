@@ -8,23 +8,82 @@
 
 import SwiftUI
 
-
+//Game Random Selector
 struct Games: View {
+    
+    //Games Array
+    var gameArray = ["Cow","Horse","Lama","Pig","Rabbit","Sheep"]
+    
+    @State private var newGame = ""
+    
+    @State private var launchNewGame = false
+    
+    //Random Game
+    func randomGame()-> String {
+        
+     //var newGame = ""
+        
+        return gameArray.randomElement() ?? ""
+        
+        
+    }
+    
+ 
+
+
+    
     
     var body: some View {
         
         
         
-      
-        //Test Area 
-        //Rabbit()
-        //Sheep()
-        //Cow()
-        //Horse()
-        //Pig()
-        Lama()
-        
-
+        VStack {
+            
+            Button(action: {
+                
+                self.newGame = ""
+                
+                self.newGame = self.randomGame()
+                self.launchNewGame.toggle()
+               
+                
+            }) {
+                
+                Text("Get New Game\(self.newGame)")
+                
+                
+                
+            }
+            
+            if launchNewGame {
+                
+                if self.newGame == "Cow" {
+                
+                Lama()
+                    
+                } else if self.newGame == "Horse" {
+                    
+                    Horse()
+                    
+                } else if self.newGame == "Lama" {
+                    
+                    Lama()
+                    
+                } else if self.newGame == "Pig" {
+                    
+                    Pig()
+                    
+                } else if self.newGame == "Rabbit" {
+                    
+                    Rabbit()
+                    
+                } else if self.newGame == "Sheep" {
+                    
+                    Sheep()
+                }
+            }
+            
+        }
     
     }
 }
