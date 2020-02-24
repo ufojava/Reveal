@@ -58,6 +58,7 @@
 		03EF376F2402EFFA00B04E6A /* Reveal */ = {
 			isa = PBXGroup;
 			children = (
+				03EF37872403979600B04E6A /* Model */,
 				03EF3784240331ED00B04E6A /* Views */,
 				03EF37702402EFFA00B04E6A /* AppDelegate.swift */,
 				03EF37722402EFFA00B04E6A /* SceneDelegate.swift */,
@@ -84,6 +85,13 @@
 				03EF37852403323100B04E6A /* GamesView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		03EF37872403979600B04E6A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
