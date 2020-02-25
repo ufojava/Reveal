@@ -49,11 +49,20 @@ struct Games: View {
                 
             }) {
                 
-                Text("Get New Game\(self.newGame)")
+                Text("START")
+                    .foregroundColor(Color.green).bold()
+                Image("animalStartButton").renderingMode(.original)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width:100,height: 100)
+                  
+                    
+                
                 
                 
                 
             }
+            Spacer()
             
             if launchNewGame {
                 
@@ -162,7 +171,10 @@ struct Rabbit: View {
     
     var body: some View {
         
+        
         VStack {
+            
+            Spacer().frame(height: 10)
         
                 HStack {//Row One
                     
@@ -267,8 +279,9 @@ struct Rabbit: View {
             
             
             
-            
+         Spacer()
         }
+        
         
         
     }
@@ -338,6 +351,7 @@ struct Sheep: View {
         
         
         VStack {
+            Spacer().frame(height: 10)
         
 
          HStack {//Row One
@@ -443,7 +457,7 @@ struct Sheep: View {
            
            
            
-           
+         Spacer()
        }
         
     }
@@ -511,6 +525,7 @@ struct Cow: View {
     var body: some View {
         
        VStack {
+        Spacer().frame(height: 10)
             
 
              HStack {//Row One
@@ -616,7 +631,7 @@ struct Cow: View {
                
                
                
-               
+            Spacer()
            }
             
         }
@@ -685,6 +700,7 @@ struct Horse: View {
         
         
         VStack {
+            Spacer().frame(height: 10)
             
 
              HStack {//Row One
@@ -790,7 +806,7 @@ struct Horse: View {
                
                
                
-               
+              Spacer()
            }
             
         }
@@ -858,6 +874,7 @@ struct Pig: View {
         
         
        VStack {
+        Spacer().frame(height: 10)
             
 
              HStack {//Row One
@@ -963,7 +980,7 @@ struct Pig: View {
                
                
                
-               
+              Spacer()
            }
             
         }
@@ -1030,6 +1047,7 @@ struct Lama: View {
     var body: some View {
         
         VStack {
+            Spacer().frame(height: 10)
             
 
              HStack {//Row One
@@ -1135,7 +1153,7 @@ struct Lama: View {
                
                
                
-               
+               Spacer()
            }
             
         }
