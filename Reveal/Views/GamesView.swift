@@ -68,7 +68,7 @@ struct Games: View {
                 
                 if self.newGame == "Cow" {
                 
-                Lama()
+                    Cow()
                     
                 } else if self.newGame == "Horse" {
                     
@@ -166,6 +166,11 @@ struct Rabbit: View {
     @State private var rabbitTileEightToggle = false
     @State private var rabbitTileNineToggle = false
     
+    //Rabit Score
+    @State private var score = 18
+    
+    
+    
     
     
     
@@ -178,14 +183,28 @@ struct Rabbit: View {
         
                 HStack {//Row One
                     
+              
+                    
                     FlipTile(tileImage: rabbitBackTileOneToggle, blankImage: rabbitBackTileOne, animalImage: rabbitTileOne)
+                       
                     
                         .gesture(TapGesture().onEnded() {
                             
                             self.rabbitBackTileOneToggle.toggle()
                             
+                            if self.rabbitBackTileOneToggle == true {
+                                                     
+                               self.score += 2
+                                
+                               } else {
+                                   
+                                   self.score -= 2
+                            }
+                        
+                        
                             
                         })
+                  
                     Spacer().frame(width: 0)
                     
                     FlipTile(tileImage: rabbitBackTileTwoToggle, blankImage: rabbitBackTileTwo, animalImage: rabbitTileTwo)
@@ -193,6 +212,15 @@ struct Rabbit: View {
                         .gesture(TapGesture().onEnded() {
                             
                             self.rabbitBackTileTwoToggle.toggle()
+                            
+                            if self.rabbitBackTileTwoToggle == true {
+                                                     
+                               self.score += 2
+                                
+                               } else {
+                                   
+                                   self.score -= 2
+                            }
                     
                     
                     })
@@ -203,6 +231,15 @@ struct Rabbit: View {
                         .gesture(TapGesture().onEnded() {
                             
                             self.rabbitBackTileThreeToggle.toggle()
+                            
+                            if self.rabbitBackTileThreeToggle == true {
+                                                     
+                               self.score += 2
+                                
+                               } else {
+                                   
+                                   self.score -= 2
+                            }
                     
                     
                     })
@@ -225,6 +262,15 @@ struct Rabbit: View {
                             
                             self.rabbitBackTileFourToggle.toggle()
                             
+                            if self.rabbitBackTileFourToggle == true {
+                                                     
+                               self.score += 2
+                                
+                               } else {
+                                   
+                                   self.score -= 2
+                            }
+                            
                             
                     })
                     Spacer().frame(width: 0)
@@ -235,13 +281,33 @@ struct Rabbit: View {
                             
                             self.rabbitBackTileFiveToggle.toggle()
                             
+                            if self.rabbitBackTileFiveToggle == true {
+                                                     
+                               self.score += 2
+                                
+                               } else {
+                                   
+                                   self.score -= 2
+                            }
+                            
                     })
+                    
+                    
                     Spacer().frame(width: 0)
                     FlipTile(tileImage: rabbitBackTileSixToggle, blankImage: rabbitBackTileSix, animalImage: rabbitTileSix)
                     
                         .gesture(TapGesture().onEnded() {
                             
                             self.rabbitBackTileSixToggle.toggle()
+                            
+                            if self.rabbitBackTileSixToggle == true {
+                                                     
+                               self.score += 2
+                                
+                               } else {
+                                   
+                                   self.score -= 2
+                            }
                             
                     })
                 }
@@ -255,6 +321,15 @@ struct Rabbit: View {
                        .gesture(TapGesture().onEnded() {
                            
                            self.rabbitBackTileSevenToggle.toggle()
+                        
+                           if self.rabbitBackTileSevenToggle == true {
+                                                 
+                           self.score += 2
+                            
+                           } else {
+                               
+                               self.score -= 2
+                        }
                            
                    })
                    Spacer().frame(width: 0)
@@ -264,6 +339,15 @@ struct Rabbit: View {
                         .gesture(TapGesture().onEnded() {
                            
                            self.rabbitBackTileEightToggle.toggle()
+                            
+                            if self.rabbitBackTileEightToggle == true {
+                                                     
+                               self.score += 2
+                                
+                               } else {
+                                   
+                                   self.score -= 2
+                               }
                                    
                     })
                    Spacer().frame(width: 0)
@@ -273,10 +357,20 @@ struct Rabbit: View {
                         .gesture(TapGesture().onEnded() {
                            
                            self.rabbitBackTileNineToggle.toggle()
+                         
+                            
+                            if self.rabbitBackTileNineToggle == true {
+                          
+                            self.score += 2
+                            } else {
+                                
+                                self.score -= 2
+                            }
                                    
                     })
                }
-            
+                    
+            Text("Score \(self.score)")
             
             
          Spacer()
@@ -1044,6 +1138,8 @@ struct Lama: View {
     @State private var lamaTileEightToggle = false
     @State private var lamaTileNineToggle = false
     
+    
+    
     var body: some View {
         
         VStack {
@@ -1124,7 +1220,7 @@ struct Lama: View {
                Spacer().frame(height: 0)
                    HStack {//Row Three
                                   
-                        FlipTile(tileImage: lamaBackTileSevenToggle, blankImage: lamaBackTileSeven, animalImage: lamaTileSeven)
+                    FlipTile(tileImage: lamaBackTileSevenToggle, blankImage: lamaBackTileSeven, animalImage: lamaTileSeven)
                                           
                           .gesture(TapGesture().onEnded() {
                               
@@ -1133,7 +1229,7 @@ struct Lama: View {
                       })
                       Spacer().frame(width: 0)
                        
-                        FlipTile(tileImage: lamaBackTileEightToggle, blankImage: lamaBackTileEight, animalImage: lamaTileEight)
+                    FlipTile(tileImage: lamaBackTileEightToggle, blankImage: lamaBackTileEight, animalImage: lamaTileEight)
                                           
                            .gesture(TapGesture().onEnded() {
                               
@@ -1142,7 +1238,7 @@ struct Lama: View {
                        })
                       Spacer().frame(width: 0)
                        
-                       FlipTile(tileImage: lamaBackTileNineToggle, blankImage: lamaBackTileNine, animalImage: lamaTileNine)
+                    FlipTile(tileImage: lamaBackTileNineToggle, blankImage: lamaBackTileNine, animalImage: lamaTileNine)
                                           
                            .gesture(TapGesture().onEnded() {
                               
@@ -1153,7 +1249,7 @@ struct Lama: View {
                
                
                
-               Spacer()
+            Spacer()
            }
             
         }
@@ -1167,6 +1263,8 @@ struct Lama: View {
 
 struct FlipTile: View {
     
+  
+    
     var tileImage: Bool
     var blankImage = ""
     var animalImage = ""
@@ -1175,15 +1273,18 @@ struct FlipTile: View {
     var body: some View {
       
         
-            Image(tileImage ? blankImage: animalImage)
+        
+        
+        Image(tileImage ? blankImage: animalImage)
                 .resizable()
                 .frame(width:92, height: 101, alignment: .center)
+            
             
             //Set Animation
                  .rotation3DEffect(self.tileImage ? Angle(degrees: 180): Angle(degrees: 360), axis: (x:CGFloat(0), y:CGFloat(10), z:CGFloat(0)))
                            .animation(.default)
             
-            
+      
        
     }
     

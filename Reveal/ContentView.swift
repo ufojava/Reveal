@@ -16,10 +16,19 @@ struct ContentView: View {
     
     //Games Array
               var gameArray = ["Cow","Horse","Lama","Pig","Rabbit","Sheep"]
+    
+              
+              //Variables
               
               @State private var newGame = ""
               
               @State private var launchNewGame = false
+    
+              @State private var animalSelected = 0
+    
+         
+    
+    
               
               //Random Game
               func randomGame()-> String {
@@ -46,9 +55,7 @@ struct ContentView: View {
                 
                            VStack {
                             
-                            Text("What Am I ?")
-                                .foregroundColor(Color.yellow)
-                                .font(.custom("chalkboard SE", size: 30))
+        
                                
                                Button(action: {
                                    
@@ -59,6 +66,8 @@ struct ContentView: View {
                                   
                                    
                                }) {
+                                
+                       
                                    
                                    Text("START")
                                        .foregroundColor(Color.green).bold()
@@ -67,42 +76,119 @@ struct ContentView: View {
                                        .resizable()
                                        .scaledToFill()
                                        .frame(width:100,height: 100)
+                                    .transition(.slide)
                                      
-                                       
-                                   
-                                   
-                                   
+                              
                                    
                                }
                                Spacer()
-                               
+                            
+                            VStack {
+                            Text("Guess the animals in the sqaure.")
+                            Text("Reveal Square, 2 points gone 😨.")
+                            
+                                }.foregroundColor(Color.yellow).font(.custom("chalkboard SE", size: 25)).padding()
+                            
+                            
+                            HStack {
+                                
+                                //Answer Cow
+                                Button(action: {}) {
+                                    
+                                    selectionIcon(image: "cow2", legend: "Cow")
+                                }//End Button
+                                
+                                
+                                //Answer Horse
+                                Button(action: {}) {
+                                    
+                                    
+                                    selectionIcon(image: "horse", legend: "Horse")
+                                    
+                                    
+                                    
+                                }//End Button
+                                
+                                
+                                //Answer Pig
+                                Button(action: {}) {
+                                    
+                                    selectionIcon(image: "pig", legend: "Pig")
+                                    
+                                    
+                                    
+                                }//End of Button
+                                
+                                
+                                //Answer LLama
+                                Button(action: {}) {
+                                    
+                                    selectionIcon(image: "llama", legend: "LLama")
+                                    
+                                    
+                                    
+                                }
+                                
+                                //Answer Rabbit
+                                Button(action: {}) {
+                                    
+                                    selectionIcon(image: "rabbit", legend: "Rabbit")
+                                    
+                                    
+                                }//end of Button
+                                
+                                
+                                //Answer Sheep
+                                Button(action: {}) {
+                                    
+                                    selectionIcon(image: "sheep", legend: "Sheep")
+                                    
+                                    
+                                }//End of Button
+                                
+                                
+                                
+                            }
+                            
+                            
                                if launchNewGame {
                                    
                                    if self.newGame == "Cow" {
                                    
-                                   Lama()
+                                   Cow()
+                            
                                        
                                    } else if self.newGame == "Horse" {
                                        
                                        Horse()
+                                  
                                        
                                    } else if self.newGame == "Lama" {
                                        
                                        Lama()
+                                  
                                        
                                    } else if self.newGame == "Pig" {
                                        
                                        Pig()
+                                 
                                        
                                    } else if self.newGame == "Rabbit" {
                                        
                                        Rabbit()
+                               
                                        
                                    } else if self.newGame == "Sheep" {
                                        
                                        Sheep()
+                                    
                                    }
                                }
+            
+                           
+                            
+                            Spacer()
+                            
                                
                            }
                 
@@ -116,6 +202,33 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+struct selectionIcon: View {
+    
+    var image: String
+    var legend: String
+    
+    var body: some View {
+        
+        VStack {
+        
+            Image(image).renderingMode(.original)
+                .resizable()
+                .scaledToFill()
+                .frame(width:50,height: 50)
+            
+            Text(legend)
+            .font(.custom("chalkboard SE", size: 15))
+            .foregroundColor(Color.black)
+        
+            
+            
+        }
+    }
+}
+
+
 
 
 
