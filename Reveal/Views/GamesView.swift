@@ -43,6 +43,7 @@ struct Games: View {
                 
                 self.newGame = ""
                 
+                
                 self.newGame = self.randomGame()
                 self.launchNewGame.toggle()
                
@@ -180,6 +181,10 @@ struct Rabbit: View {
         VStack {
             
             Spacer().frame(height: 10)
+            
+       
+            
+            Spacer().frame(height: 20)
         
                 HStack {//Row One
                     
@@ -440,12 +445,18 @@ struct Sheep: View {
     @State private var sheepTileSevenToggle = false
     @State private var sheepTileEightToggle = false
     @State private var sheepTileNineToggle = false
+    
+    @State private var score = 18
 
     var body: some View {
         
         
         VStack {
+            
             Spacer().frame(height: 10)
+            
+           
+            Spacer().frame(height: 20)
         
 
          HStack {//Row One
@@ -455,6 +466,14 @@ struct Sheep: View {
                        .gesture(TapGesture().onEnded() {
                            
                            self.sheepBackTileOneToggle.toggle()
+                        
+                        if self.sheepBackTileOneToggle == true {
+                        
+                          self.score += 2
+                          } else {
+                              
+                              self.score -= 2
+                          }
                            
                            
                        })
@@ -465,9 +484,19 @@ struct Sheep: View {
                        .gesture(TapGesture().onEnded() {
                            
                            self.sheepBackTileTwoToggle.toggle()
+                        
+                        if self.sheepBackTileTwoToggle == true {
+                        
+                          self.score += 2
+                          } else {
+                              
+                              self.score -= 2
+                          }
                    
                    
                    })
+            
+            
                    Spacer().frame(width: 0)
                    
                    FlipTile(tileImage: sheepBackTileThreeToggle, blankImage: sheepBackTileThree, animalImage: sheepTileThree)
@@ -475,6 +504,14 @@ struct Sheep: View {
                        .gesture(TapGesture().onEnded() {
                            
                            self.sheepBackTileThreeToggle.toggle()
+                        
+                            if self.sheepBackTileThreeToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                    
                    
                    })
@@ -496,6 +533,14 @@ struct Sheep: View {
                        .gesture(TapGesture().onEnded() {
                            
                            self.sheepBackTileFourToggle.toggle()
+                        
+                            if self.sheepBackTileFourToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                            
                            
                    })
@@ -506,6 +551,14 @@ struct Sheep: View {
                        .gesture(TapGesture().onEnded() {
                            
                            self.sheepBackTileFiveToggle.toggle()
+                        
+                            if self.sheepBackTileFiveToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                            
                    })
                    Spacer().frame(width: 0)
@@ -514,6 +567,14 @@ struct Sheep: View {
                        .gesture(TapGesture().onEnded() {
                            
                            self.sheepBackTileSixToggle.toggle()
+                        
+                        if self.sheepBackTileSixToggle == true {
+                        
+                          self.score += 2
+                          } else {
+                              
+                              self.score -= 2
+                          }
                            
                    })
                }
@@ -527,6 +588,14 @@ struct Sheep: View {
                       .gesture(TapGesture().onEnded() {
                           
                           self.sheepBackTileSevenToggle.toggle()
+                        
+                        if self.sheepBackTileSevenToggle == true {
+                        
+                          self.score += 2
+                          } else {
+                              
+                              self.score -= 2
+                          }
                           
                   })
                   Spacer().frame(width: 0)
@@ -536,6 +605,14 @@ struct Sheep: View {
                        .gesture(TapGesture().onEnded() {
                           
                           self.sheepBackTileEightToggle.toggle()
+                        
+                        if self.sheepBackTileEightToggle == true {
+                        
+                          self.score += 2
+                          } else {
+                              
+                              self.score -= 2
+                          }
                                   
                    })
                   Spacer().frame(width: 0)
@@ -545,12 +622,20 @@ struct Sheep: View {
                        .gesture(TapGesture().onEnded() {
                           
                           self.sheepBackTileNineToggle.toggle()
+                        
+                        if self.sheepBackTileNineToggle == true {
+                        
+                          self.score += 2
+                          } else {
+                              
+                              self.score -= 2
+                          }
                                   
                    })
               }
            
            
-           
+           Text("Score \(self.score)")
          Spacer()
        }
         
@@ -616,10 +701,14 @@ struct Cow: View {
     @State private var cowTileEightToggle = false
     @State private var cowTileNineToggle = false
     
+    @State private var score = 18
+    
     var body: some View {
         
        VStack {
-        Spacer().frame(height: 10)
+        
+  
+        Spacer().frame(height: 20)
             
 
              HStack {//Row One
@@ -629,6 +718,14 @@ struct Cow: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.cowBackTileOneToggle.toggle()
+                            
+                            if self.cowBackTileOneToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                                
                                
                            })
@@ -639,6 +736,14 @@ struct Cow: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.cowBackTileTwoToggle.toggle()
+                            
+                            if self.cowBackTileTwoToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                        
                        
                        })
@@ -649,6 +754,14 @@ struct Cow: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.cowBackTileThreeToggle.toggle()
+                            
+                            if self.cowBackTileThreeToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                        
                        
                        })
@@ -670,6 +783,14 @@ struct Cow: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.cowBackTileFourToggle.toggle()
+                            
+                            if self.cowBackTileFourToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                                
                                
                        })
@@ -680,6 +801,14 @@ struct Cow: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.cowBackTileFiveToggle.toggle()
+                            
+                            if self.cowBackTileFiveToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                                
                        })
                        Spacer().frame(width: 0)
@@ -688,6 +817,14 @@ struct Cow: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.cowBackTileSixToggle.toggle()
+                            
+                            if self.cowBackTileSixToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                                
                        })
                    }
@@ -701,6 +838,14 @@ struct Cow: View {
                           .gesture(TapGesture().onEnded() {
                               
                               self.cowBackTileSevenToggle.toggle()
+                            
+                            if self.cowBackTileSevenToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                               
                       })
                       Spacer().frame(width: 0)
@@ -710,6 +855,14 @@ struct Cow: View {
                            .gesture(TapGesture().onEnded() {
                               
                               self.cowBackTileEightToggle.toggle()
+                            
+                            if self.cowBackTileEightToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                                       
                        })
                       Spacer().frame(width: 0)
@@ -719,12 +872,20 @@ struct Cow: View {
                            .gesture(TapGesture().onEnded() {
                               
                               self.cowBackTileNineToggle.toggle()
+                            
+                            if self.cowBackTileNineToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                                       
                        })
                   }
                
                
-               
+               Text("Score \(self.score)")
             Spacer()
            }
             
@@ -790,11 +951,16 @@ struct Horse: View {
     @State private var horseTileEightToggle = false
     @State private var horseTileNineToggle = false
     
+    @State private var score = 18
+    
     var body: some View {
         
         
         VStack {
+            
             Spacer().frame(height: 10)
+            
+           
             
 
              HStack {//Row One
@@ -804,6 +970,14 @@ struct Horse: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.horseBackTileOneToggle.toggle()
+                            
+                            if self.horseBackTileOneToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                                
                                
                            })
@@ -824,6 +998,14 @@ struct Horse: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.horseBackTileThreeToggle.toggle()
+                            
+                            if self.horseBackTileThreeToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                        
                        
                        })
@@ -845,6 +1027,14 @@ struct Horse: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.horseBackTileFourToggle.toggle()
+                            
+                            if self.horseBackTileFourToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                                
                                
                        })
@@ -855,6 +1045,14 @@ struct Horse: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.horseBackTileFiveToggle.toggle()
+                            
+                            if self.horseBackTileFiveToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                                
                        })
                        Spacer().frame(width: 0)
@@ -863,6 +1061,14 @@ struct Horse: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.horseBackTileSixToggle.toggle()
+                            
+                            if self.horseBackTileSixToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                                
                        })
                    }
@@ -876,6 +1082,14 @@ struct Horse: View {
                           .gesture(TapGesture().onEnded() {
                               
                               self.horseBackTileSevenToggle.toggle()
+                            
+                            if self.horseBackTileSevenToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                               
                       })
                       Spacer().frame(width: 0)
@@ -885,6 +1099,14 @@ struct Horse: View {
                            .gesture(TapGesture().onEnded() {
                               
                               self.horseBackTileEightToggle.toggle()
+                            
+                            if self.horseBackTileEightToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                                       
                        })
                       Spacer().frame(width: 0)
@@ -894,12 +1116,20 @@ struct Horse: View {
                            .gesture(TapGesture().onEnded() {
                               
                               self.horseBackTileNineToggle.toggle()
+                            
+                            if self.horseBackTileNineToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                                       
                        })
                   }
                
                
-               
+               Text("Score \(self.score)")
               Spacer()
            }
             
@@ -964,11 +1194,16 @@ struct Pig: View {
     @State private var pigTileEightToggle = false
     @State private var pigTileNineToggle = false
     
+    @State private var score = 18
+    
     var body: some View {
         
         
        VStack {
+        
         Spacer().frame(height: 10)
+        
+       
             
 
              HStack {//Row One
@@ -978,6 +1213,14 @@ struct Pig: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.pigBackTileOneToggle.toggle()
+                            
+                            if self.pigBackTileOneToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                                
                                
                            })
@@ -988,6 +1231,14 @@ struct Pig: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.pigBackTileTwoToggle.toggle()
+                            
+                            if self.pigBackTileTwoToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                        
                        
                        })
@@ -998,6 +1249,14 @@ struct Pig: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.pigBackTileThreeToggle.toggle()
+                            
+                            if self.pigBackTileThreeToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                        
                        
                        })
@@ -1019,6 +1278,14 @@ struct Pig: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.pigBackTileFourToggle.toggle()
+                            
+                            if self.pigBackTileFourToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                                
                                
                        })
@@ -1029,6 +1296,14 @@ struct Pig: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.pigBackTileFiveToggle.toggle()
+                            
+                            if self.pigBackTileFiveToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                                
                        })
                        Spacer().frame(width: 0)
@@ -1037,6 +1312,14 @@ struct Pig: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.pigBackTileSixToggle.toggle()
+                            
+                            if self.pigBackTileSixToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                                
                        })
                    }
@@ -1050,6 +1333,14 @@ struct Pig: View {
                           .gesture(TapGesture().onEnded() {
                               
                               self.pigBackTileSevenToggle.toggle()
+                            
+                            if self.pigBackTileSevenToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                               
                       })
                       Spacer().frame(width: 0)
@@ -1059,6 +1350,14 @@ struct Pig: View {
                            .gesture(TapGesture().onEnded() {
                               
                               self.pigBackTileEightToggle.toggle()
+                            
+                            if self.pigBackTileEightToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                                       
                        })
                       Spacer().frame(width: 0)
@@ -1068,11 +1367,19 @@ struct Pig: View {
                            .gesture(TapGesture().onEnded() {
                               
                               self.pigBackTileNineToggle.toggle()
+                            
+                            if self.pigBackTileNineToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                                       
                        })
                   }
                
-               
+               Text("Score \(self.score)")
                
               Spacer()
            }
@@ -1138,13 +1445,16 @@ struct Lama: View {
     @State private var lamaTileEightToggle = false
     @State private var lamaTileNineToggle = false
     
+    @State private var score = 18
+    
     
     
     var body: some View {
         
         VStack {
-            Spacer().frame(height: 10)
             
+            Spacer().frame(height: 10)
+           
 
              HStack {//Row One
                                
@@ -1153,6 +1463,14 @@ struct Lama: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.lamaBackTileOneToggle.toggle()
+                            
+                            if self.lamaBackTileOneToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                                
                                
                            })
@@ -1163,6 +1481,14 @@ struct Lama: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.lamaBackTileTwoToggle.toggle()
+                            
+                            if self.lamaBackTileTwoToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                        
                        
                        })
@@ -1173,6 +1499,14 @@ struct Lama: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.lamaBackTileThreeToggle.toggle()
+                            
+                            if self.lamaBackTileThreeToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                        
                        
                        })
@@ -1194,6 +1528,14 @@ struct Lama: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.lamaBackTileFourToggle.toggle()
+                            
+                            if self.lamaBackTileFourToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                                
                                
                        })
@@ -1204,6 +1546,14 @@ struct Lama: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.lamaBackTileFiveToggle.toggle()
+                            
+                            if self.lamaBackTileFiveToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                                
                        })
                        Spacer().frame(width: 0)
@@ -1212,6 +1562,14 @@ struct Lama: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.lamaBackTileSixToggle.toggle()
+                            
+                            if self.lamaBackTileSixToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                                
                        })
                    }
@@ -1225,6 +1583,14 @@ struct Lama: View {
                           .gesture(TapGesture().onEnded() {
                               
                               self.lamaBackTileSevenToggle.toggle()
+                            
+                            if self.lamaBackTileSevenToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                               
                       })
                       Spacer().frame(width: 0)
@@ -1234,6 +1600,14 @@ struct Lama: View {
                            .gesture(TapGesture().onEnded() {
                               
                               self.lamaBackTileEightToggle.toggle()
+                            
+                            if self.lamaBackTileEightToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                                       
                        })
                       Spacer().frame(width: 0)
@@ -1243,11 +1617,19 @@ struct Lama: View {
                            .gesture(TapGesture().onEnded() {
                               
                               self.lamaBackTileNineToggle.toggle()
+                            
+                            if self.lamaBackTileNineToggle == true {
+                            
+                              self.score += 2
+                              } else {
+                                  
+                                  self.score -= 2
+                              }
                                       
                        })
                   }
                
-               
+               Text("Score \(self.score)")
                
             Spacer()
            }
@@ -1290,3 +1672,29 @@ struct FlipTile: View {
     
     
 }//End of FlipTile
+
+
+struct selectionIcon: View {
+    
+    var image: String
+    var legend: String
+    
+    var body: some View {
+        
+        VStack {
+        
+            Image(image).renderingMode(.original)
+                .resizable()
+                .scaledToFill()
+                .frame(width:50,height: 50)
+                
+            
+            Text(legend)
+            .font(.custom("chalkboard SE", size: 15))
+            .foregroundColor(Color.black)
+        
+            
+            
+        }
+    }
+}

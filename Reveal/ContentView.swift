@@ -24,7 +24,12 @@ struct ContentView: View {
               
               @State private var launchNewGame = false
     
-              @State private var animalSelected = 0
+             @State private var pickedAnimal = ""
+             @State private var playerAnswer = false
+    
+          
+    
+
     
          
     
@@ -67,89 +72,108 @@ struct ContentView: View {
                                    
                                }) {
                                 
-                       
-                                   
-                                   Text("START")
-                                       .foregroundColor(Color.green).bold()
-                                    .font(.custom("chalkboard SE", size: 25))
-                                   Image("animalStartButton").renderingMode(.original)
+                        
+                                
+                                   Image("gameStart").renderingMode(.original)
                                        .resizable()
                                        .scaledToFill()
-                                       .frame(width:100,height: 100)
-                                    .transition(.slide)
-                                     
-                              
-                                   
+                                    .clipShape(Circle())
+                                    .overlay(Circle().stroke(Color.white,lineWidth: 3))
+                                       .frame(width:200,height: 200)
+                                
+                                    
+                               
                                }
-                               Spacer()
                             
                             VStack {
-                            Text("Guess the animals in the sqaure.")
-                            Text("Reveal Square, 2 points gone 😨.")
                             
-                                }.foregroundColor(Color.yellow).font(.custom("chalkboard SE", size: 25)).padding()
-                            
+                            Spacer().frame(height: 10)
+                                
+                                if launchNewGame {
                             
                             HStack {
-                                
-                                //Answer Cow
-                                Button(action: {}) {
                                     
-                                    selectionIcon(image: "cow2", legend: "Cow")
-                                }//End Button
-                                
-                                
-                                //Answer Horse
-                                Button(action: {}) {
-                                    
-                                    
-                                    selectionIcon(image: "horse", legend: "Horse")
-                                    
-                                    
-                                    
-                                }//End Button
-                                
-                                
-                                //Answer Pig
-                                Button(action: {}) {
-                                    
-                                    selectionIcon(image: "pig", legend: "Pig")
-                                    
-                                    
-                                    
-                                }//End of Button
+                                    //Answer Cow
+                                    Button(action: {
+                                            
+                                        self.pickedAnimal = "cow"
+                                       
+                                        
+                                    }) {
+                                        
+                                        selectionIcon(image: "cow2", legend: "Cow")
+                                        
+                                            
+                                        
+                                            
+                                        
+                                    }//End Button
                                 
                                 
-                                //Answer LLama
-                                Button(action: {}) {
-                                    
-                                    selectionIcon(image: "llama", legend: "LLama")
                                     
                                     
+                                    //Answer Horse
+                                    Button(action: {
+                                        
+                                        self.pickedAnimal = "horse"
+                                        
+                                    }) {
+                                        
+                                        
+                                        selectionIcon(image: "horse", legend: "Horse")
+                                        
+                                        
+                                        
+                                    }//End Button
+                                    
+                                    
+                                    //Answer Pig
+                                    Button(action: {}) {
+                                        
+                                        selectionIcon(image: "pig", legend: "Pig")
+                                        
+                                        
+                                        
+                                    }//End of Button
+                                    
+                                    
+                                    //Answer LLama
+                                    Button(action: {}) {
+                                        
+                                        selectionIcon(image: "llama", legend: "LLama")
+                                        
+                                        
+                                        
+                                    }
+                                    
+                                    //Answer Rabbit
+                                    Button(action: {}) {
+                                        
+                                        selectionIcon(image: "rabbit", legend: "Rabbit")
+                                        
+                                        
+                                    }//end of Button
+                                    
+                                    
+                                    //Answer Sheep
+                                    Button(action: {}) {
+                                        
+                                        selectionIcon(image: "sheep", legend: "Sheep")
+                                        
+                                        
+                                    }//End of Button
                                     
                                 }
-                                
-                                //Answer Rabbit
-                                Button(action: {}) {
+                                }
                                     
-                                    selectionIcon(image: "rabbit", legend: "Rabbit")
-                                    
-                                    
-                                }//end of Button
-                                
-                                
-                                //Answer Sheep
-                                Button(action: {}) {
-                                    
-                                    selectionIcon(image: "sheep", legend: "Sheep")
-                                    
-                                    
-                                }//End of Button
-                                
-                                
-                                
-                            }
+                                }
                             
+                            Text("Your selection is: \(self.pickedAnimal)")
+                                .font(.custom("chalkboard SE", size: 15))
+                                .foregroundColor(Color.yellow)
+                               
+                             Spacer().frame(height:30)
+            
                             
                                if launchNewGame {
                                    
@@ -185,9 +209,9 @@ struct ContentView: View {
                                    }
                                }
             
-                           
+                          
                             
-                            Spacer()
+                           // Spacer()
                             
                                
                            }
@@ -204,29 +228,7 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 
-struct selectionIcon: View {
-    
-    var image: String
-    var legend: String
-    
-    var body: some View {
-        
-        VStack {
-        
-            Image(image).renderingMode(.original)
-                .resizable()
-                .scaledToFill()
-                .frame(width:50,height: 50)
-            
-            Text(legend)
-            .font(.custom("chalkboard SE", size: 15))
-            .foregroundColor(Color.black)
-        
-            
-            
-        }
-    }
-}
+
 
 
 
