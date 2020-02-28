@@ -14,6 +14,14 @@
 		03EF377A2402EFFD00B04E6A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03EF37792402EFFD00B04E6A /* Preview Assets.xcassets */; };
 		03EF377D2402EFFD00B04E6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03EF377B2402EFFD00B04E6A /* LaunchScreen.storyboard */; };
 		03EF37862403323100B04E6A /* GamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF37852403323100B04E6A /* GamesView.swift */; };
+		03EF37912408771100B04E6A /* AnimalSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF37902408771100B04E6A /* AnimalSound.swift */; };
+		03EF37952408862200B04E6A /* AudioTextFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF37942408862200B04E6A /* AudioTextFile.swift */; };
+		03EF37992408921200B04E6A /* cow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 03EF37982408921200B04E6A /* cow.mp3 */; };
+		03EF379B2408928700B04E6A /* horse.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 03EF379A2408928700B04E6A /* horse.mp3 */; };
+		03EF379D240892C400B04E6A /* pig.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 03EF379C240892C400B04E6A /* pig.mp3 */; };
+		03EF379F2408948700B04E6A /* sheep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 03EF379E2408948700B04E6A /* sheep.mp3 */; };
+		03EF37A2240898E400B04E6A /* rabbit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 03EF37A0240898E400B04E6A /* rabbit.mp3 */; };
+		03EF37A3240898E400B04E6A /* llama.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 03EF37A1240898E400B04E6A /* llama.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +34,14 @@
 		03EF377C2402EFFD00B04E6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03EF377E2402EFFD00B04E6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03EF37852403323100B04E6A /* GamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesView.swift; sourceTree = "<group>"; };
+		03EF37902408771100B04E6A /* AnimalSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalSound.swift; sourceTree = "<group>"; };
+		03EF37942408862200B04E6A /* AudioTextFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTextFile.swift; sourceTree = "<group>"; };
+		03EF37982408921200B04E6A /* cow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cow.mp3; sourceTree = "<group>"; };
+		03EF379A2408928700B04E6A /* horse.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = horse.mp3; sourceTree = "<group>"; };
+		03EF379C240892C400B04E6A /* pig.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pig.mp3; sourceTree = "<group>"; };
+		03EF379E2408948700B04E6A /* sheep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sheep.mp3; sourceTree = "<group>"; };
+		03EF37A0240898E400B04E6A /* rabbit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rabbit.mp3; sourceTree = "<group>"; };
+		03EF37A1240898E400B04E6A /* llama.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = llama.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +74,12 @@
 		03EF376F2402EFFA00B04E6A /* Reveal */ = {
 			isa = PBXGroup;
 			children = (
+				03EF37982408921200B04E6A /* cow.mp3 */,
+				03EF37A1240898E400B04E6A /* llama.mp3 */,
+				03EF37A0240898E400B04E6A /* rabbit.mp3 */,
+				03EF379A2408928700B04E6A /* horse.mp3 */,
+				03EF379E2408948700B04E6A /* sheep.mp3 */,
+				03EF379C240892C400B04E6A /* pig.mp3 */,
 				03EF37872403979600B04E6A /* Model */,
 				03EF3784240331ED00B04E6A /* Views */,
 				03EF37702402EFFA00B04E6A /* AppDelegate.swift */,
@@ -83,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				03EF37852403323100B04E6A /* GamesView.swift */,
+				03EF37942408862200B04E6A /* AudioTextFile.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -90,6 +113,7 @@
 		03EF37872403979600B04E6A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				03EF37902408771100B04E6A /* AnimalSound.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -153,8 +177,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				03EF377D2402EFFD00B04E6A /* LaunchScreen.storyboard in Resources */,
+				03EF379D240892C400B04E6A /* pig.mp3 in Resources */,
+				03EF379F2408948700B04E6A /* sheep.mp3 in Resources */,
 				03EF377A2402EFFD00B04E6A /* Preview Assets.xcassets in Resources */,
+				03EF37A3240898E400B04E6A /* llama.mp3 in Resources */,
+				03EF37A2240898E400B04E6A /* rabbit.mp3 in Resources */,
 				03EF37772402EFFD00B04E6A /* Assets.xcassets in Resources */,
+				03EF379B2408928700B04E6A /* horse.mp3 in Resources */,
+				03EF37992408921200B04E6A /* cow.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,10 +195,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03EF37912408771100B04E6A /* AnimalSound.swift in Sources */,
 				03EF37712402EFFA00B04E6A /* AppDelegate.swift in Sources */,
 				03EF37732402EFFA00B04E6A /* SceneDelegate.swift in Sources */,
 				03EF37862403323100B04E6A /* GamesView.swift in Sources */,
 				03EF37752402EFFA00B04E6A /* ContentView.swift in Sources */,
+				03EF37952408862200B04E6A /* AudioTextFile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

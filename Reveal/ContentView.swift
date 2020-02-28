@@ -25,7 +25,8 @@ struct ContentView: View {
               @State private var launchNewGame = false
     
              @State private var pickedAnimal = ""
-             @State private var playerAnswer = false
+             @State private var playerAnswer = ""
+             @State private var showAnswer = false
     
           
     
@@ -45,6 +46,28 @@ struct ContentView: View {
                   
               }
 
+    //Function to process selection
+    
+    func processSelection(inSelection: String)  {
+        
+        //Show Answer
+        self.showAnswer.toggle()
+        
+        //Variable
+        self.pickedAnimal = inSelection
+        
+        
+        if self.pickedAnimal == self.newGame {
+            
+            self.playerAnswer = "Correct"
+            
+        } else {
+            
+            self.playerAnswer = "Incorrect. Try Tiles"
+        }
+    }
+
+    
            
            
            var body: some View {
@@ -72,7 +95,10 @@ struct ContentView: View {
                                    
                                }) {
                                 
-                        
+                                VStack {
+                                    Text("CLICK CIRCLE")
+                                        .foregroundColor(Color.green)
+                                        .font(.custom("chalkboard SE", size: 25))
                                 
                                    Image("gameStart").renderingMode(.original)
                                        .resizable()
@@ -81,7 +107,7 @@ struct ContentView: View {
                                     .overlay(Circle().stroke(Color.white,lineWidth: 3))
                                        .frame(width:200,height: 200)
                                 
-                                    
+                                }
                                
                                }
                             
@@ -90,19 +116,30 @@ struct ContentView: View {
                             Spacer().frame(height: 10)
                                 
                                 if launchNewGame {
+                                    
+                                    Text("Can you guess the animal behid the squares??")
+                                    .foregroundColor(Color.yellow)
+                                    .font(.custom("chalkboard SE", size: 15))
                             
                             HStack {
                                     
+                                
+                                
+                                
                                     //Answer Cow
                                     Button(action: {
                                             
-                                        self.pickedAnimal = "cow"
                                        
                                         
                                     }) {
                                         
                                         selectionIcon(image: "cow2", legend: "Cow")
-                                        
+                                            .onTapGesture {
+                                                playSound(sound: "cow", type: "mp3")
+                                                
+                                                self.processSelection(inSelection: "Cow")
+                                                
+                                        }
                                             
                                         
                                             
@@ -115,12 +152,17 @@ struct ContentView: View {
                                     //Answer Horse
                                     Button(action: {
                                         
-                                        self.pickedAnimal = "horse"
+                                    
                                         
                                     }) {
                                         
                                         
                                         selectionIcon(image: "horse", legend: "Horse")
+                                        .onTapGesture {
+                                            
+                                            playSound(sound: "horse", type: "mp3")
+                                            self.processSelection(inSelection: "Horse")
+                                        }
                                         
                                         
                                         
@@ -128,9 +170,17 @@ struct ContentView: View {
                                     
                                     
                                     //Answer Pig
-                                    Button(action: {}) {
+                                    Button(action: {
+                                        
+                                       
+                                    }) {
                                         
                                         selectionIcon(image: "pig", legend: "Pig")
+                                        .onTapGesture {
+                                            
+                                            playSound(sound: "pig", type: "mp3")
+                                            self.processSelection(inSelection: "Pig")
+                                        }
                                         
                                         
                                         
@@ -138,27 +188,50 @@ struct ContentView: View {
                                     
                                     
                                     //Answer LLama
-                                    Button(action: {}) {
+                                    Button(action: {
+                                        
+                                       
+                                        
+                                    }) {
                                         
                                         selectionIcon(image: "llama", legend: "LLama")
+                                        .onTapGesture {
+                                            playSound(sound: "llama", type: "mp3")
+                                            self.processSelection(inSelection: "Llama")
                                         
-                                        
+                                        }
                                         
                                     }
                                     
                                     //Answer Rabbit
-                                    Button(action: {}) {
+                                    Button(action: {
+                                        
+                                   
+                                      
+                                    }) {
                                         
                                         selectionIcon(image: "rabbit", legend: "Rabbit")
+                                        .onTapGesture {
+                                            playSound(sound: "rabbit", type: "mp3")
+                                            self.processSelection(inSelection: "Rabbit")
+                                        }
                                         
                                         
                                     }//end of Button
                                     
                                     
                                     //Answer Sheep
-                                    Button(action: {}) {
+                                    Button(action: {
+                                        
+                                       
+                                    }) {
                                         
                                         selectionIcon(image: "sheep", legend: "Sheep")
+                                        .onTapGesture {
+                                            
+                                            playSound(sound: "sheep", type: "mp3")
+                                            self.processSelection(inSelection: "Sheep")
+                                        }
                                         
                                         
                                     }//End of Button
@@ -168,9 +241,26 @@ struct ContentView: View {
                                     
                                 }
                             
+                            HStack {
+                                
+                                if showAnswer {
+                            
                             Text("Your selection is: \(self.pickedAnimal)")
                                 .font(.custom("chalkboard SE", size: 15))
                                 .foregroundColor(Color.yellow)
+                                
+                                }
+                                
+                                Text("\(self.playerAnswer)")
+                                .foregroundColor(Color.red)
+                                
+                            }
+                            
+                            
+                            
+                            
+                                    
+                            
                                
                              Spacer().frame(height:30)
             
