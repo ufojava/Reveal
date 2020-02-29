@@ -55,8 +55,6 @@ struct ContentView: View {
     
     func processSelection(inSelection: String)  {
         
-        //Show Answer
-        //self.showAnswer.toggle()
         
         //Variable
         self.pickedAnimal = inSelection
@@ -80,7 +78,7 @@ struct ContentView: View {
     //Function to process try count
     func tryCount() {
         
-            if self.guessAnimalCount > 0 {
+        if self.guessAnimalCount > 0 && self.gameScore.score == 18 {
                       
               self.playerAnswer = "Maximum Guess Count Reached"
                 
@@ -118,6 +116,7 @@ struct ContentView: View {
                                     self.pickedAnimal = ""
                                     self.playerAnswer = ""
                                     self.guessAnimalCount = 0
+                                    self.gameScore.score = 18
                                 
                                    
                                    self.newGame = self.randomGame()
@@ -172,7 +171,7 @@ struct ContentView: View {
                                                 
                                                 
                                                 
-                                                if self.guessAnimalCount > 0 {
+                                                if self.guessAnimalCount > 0 && self.gameScore.score == 18 {
                                                     
                                                     //Try Guess Count
                                                     self.tryCount()
@@ -203,7 +202,7 @@ struct ContentView: View {
                                         selectionIcon(image: "horse", legend: "Horse")
                                         .onTapGesture {
                                             
-                                            if self.guessAnimalCount > 0 {
+                                            if self.guessAnimalCount > 0 && self.gameScore.score == 18 {
                                             
                                                 //Try Guess Count
                                                 self.tryCount()
@@ -230,7 +229,7 @@ struct ContentView: View {
                                         selectionIcon(image: "pig", legend: "Pig")
                                         .onTapGesture {
                                             
-                                            if self.guessAnimalCount > 0 {
+                                            if self.guessAnimalCount > 0 && self.gameScore.score == 18 {
                                                 
                                                 //Try Guess Count
                                                 self.tryCount()
@@ -257,7 +256,7 @@ struct ContentView: View {
                                         selectionIcon(image: "llama", legend: "Llama")
                                         .onTapGesture {
                                             
-                                            if self.guessAnimalCount > 0 {
+                                            if self.guessAnimalCount > 0 && self.gameScore.score == 18 {
                                                 
                                                 //Try guess count
                                                 self.tryCount()
@@ -281,7 +280,7 @@ struct ContentView: View {
                                         selectionIcon(image: "rabbit", legend: "Rabbit")
                                         .onTapGesture {
                                             
-                                            if self.guessAnimalCount > 0 {
+                                            if self.guessAnimalCount > 0 && self.gameScore.score == 18{
                                                 
                                                 
                                                 //Try guess count
@@ -306,7 +305,7 @@ struct ContentView: View {
                                         selectionIcon(image: "sheep", legend: "Sheep")
                                         .onTapGesture {
                                             
-                                            if self.guessAnimalCount > 0 {
+                                            if self.guessAnimalCount > 0 && self.gameScore.score == 18 {
                                                 
                                                 //Try guess count
                                                 self.tryCount()
@@ -332,7 +331,7 @@ struct ContentView: View {
                                     .foregroundColor(Color.yellow)
                                     .font(.custom("chalkboard SE", size: 15))
                                 
-                                Text("update \(gameScore.score)")
+                                
                                 
                             }
                             
