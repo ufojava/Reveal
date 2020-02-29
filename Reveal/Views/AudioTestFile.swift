@@ -12,13 +12,13 @@ struct AudioTextFile: View {
     var body: some View {
         
         
-        
+        VStack {
         
         
         Button(action: {
             
             
-            playSound(sound: "pig", type: "m4a")
+            playSound(sound: "pig", type: "mp3")
             
             
         }) {
@@ -28,6 +28,19 @@ struct AudioTextFile: View {
             
             
         }
+        
+        
+        
+        Button(action: {
+            
+            readGameSpeech(word: "Hello World, my name is Ufuoma")
+            
+        }) {
+            
+            
+            Text("Synthsizer")
+        }
+    }
     }
 }
 

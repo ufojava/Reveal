@@ -172,7 +172,19 @@ struct Rabbit: View {
     
   
    
-    
+    //Variable to convert Point to a String
+    var pointConverter: String {
+        
+        var intToTextConvert = ""
+        var speechText = ""
+        
+        intToTextConvert = String(gameScore.score)
+        speechText = "Your score is \(intToTextConvert)"
+        
+        return speechText
+        
+        
+    }
     
     
     
@@ -203,21 +215,23 @@ struct Rabbit: View {
                             
                             if self.rabbitBackTileOneToggle == true {
                                 
-                                /*
-                                
-                               self.score += 2
-                                
-                               } else {
-                                  
-                                self.score -= 2
-                            }
-                        */
+                   
                                 
                                 self.gameScore.score += 2
                                 
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                
+                                }
                             } else {
                                 
                                 self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                             }
                         
                             
@@ -235,10 +249,18 @@ struct Rabbit: View {
                             if self.rabbitBackTileTwoToggle == true {
                                
                                self.gameScore.score += 2
-                                   
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                } else {
                                    
                                    self.gameScore.score -= 2
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                }
                     
                     
@@ -255,10 +277,20 @@ struct Rabbit: View {
                             if self.rabbitBackTileThreeToggle == true {
                                
                                self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                    
                                } else {
                                    
                                    self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                }
                     
                     
@@ -286,10 +318,20 @@ struct Rabbit: View {
                             if self.rabbitBackTileFourToggle == true {
                                
                                 self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                     
                                 } else {
                                     
                                     self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                 }
                             
                             
@@ -306,10 +348,20 @@ struct Rabbit: View {
                             if self.rabbitBackTileFiveToggle == true {
                                
                                self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                    
                                } else {
                                    
                                    self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                }
                             
                     })
@@ -326,10 +378,20 @@ struct Rabbit: View {
                             if self.rabbitBackTileSixToggle == true {
                                 
                                 self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                     
                                 } else {
                                     
                                     self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                 }
                             
                     })
@@ -349,10 +411,20 @@ struct Rabbit: View {
                            if self.rabbitBackTileSevenToggle == true {
                             
                            self.gameScore.score += 2
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            //Read Current Score
+                            readGameSpeech(word: self.pointConverter)
+                            }
                                
                            } else {
                                
                                self.gameScore.score -= 2
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            //Read Current Score
+                            readGameSpeech(word: self.pointConverter)
+                            }
                            }
                            
                    })
@@ -368,10 +440,20 @@ struct Rabbit: View {
                             if self.rabbitBackTileEightToggle == true {
                                 
                                self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                    
                                } else {
                                    
                                    self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                }
                                    
                     })
@@ -389,9 +471,19 @@ struct Rabbit: View {
                           
                             self.gameScore.score += 2
                                 
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            //Read Current Score
+                            readGameSpeech(word: self.pointConverter)
+                            }
+                                
                             } else {
                                 
                                 self.gameScore.score -= 2
+                                
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            //Read Current Score
+                            readGameSpeech(word: self.pointConverter)
+                            }
                             }
                                    
                     })
@@ -477,6 +569,21 @@ struct Sheep: View {
     @State private var sheepTileNineToggle = false
     
     
+    //Variable to convert Point to a String
+       var pointConverter: String {
+           
+           var intToTextConvert = ""
+           var speechText = ""
+           
+           intToTextConvert = String(gameScore.score)
+           speechText = "Your score is \(intToTextConvert)"
+           
+           return speechText
+           
+           
+       }
+       
+    
 
     var body: some View {
         
@@ -501,10 +608,20 @@ struct Sheep: View {
                         if self.sheepBackTileOneToggle == true {
                         
                           self.gameScore.score += 2
+                          
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            //Read Current Score
+                            readGameSpeech(word: self.pointConverter)
+                            }
                               
                              } else {
                                 
                               self.gameScore.score -= 2
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            //Read Current Score
+                            readGameSpeech(word: self.pointConverter)
+                            }
                           }
                            
                            
@@ -521,10 +638,20 @@ struct Sheep: View {
                         if self.sheepBackTileTwoToggle == true {
                         
                           self.gameScore.score += 2
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            //Read Current Score
+                            readGameSpeech(word: self.pointConverter)
+                            }
                               
                              } else {
                                 
                               self.gameScore.score -= 2
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            //Read Current Score
+                            readGameSpeech(word: self.pointConverter)
+                            }
                           }
                    
                    
@@ -543,10 +670,20 @@ struct Sheep: View {
                             if self.sheepBackTileThreeToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                    
                    
@@ -574,10 +711,20 @@ struct Sheep: View {
                             if self.sheepBackTileFourToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                            
                            
@@ -594,10 +741,20 @@ struct Sheep: View {
                             if self.sheepBackTileFiveToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                            
                    })
@@ -612,10 +769,20 @@ struct Sheep: View {
                         if self.sheepBackTileSixToggle == true {
                         
                           self.gameScore.score += 2
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            //Read Current Score
+                            readGameSpeech(word: self.pointConverter)
+                            }
                               
                              } else {
                                 
                               self.gameScore.score -= 2
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            //Read Current Score
+                            readGameSpeech(word: self.pointConverter)
+                            }
                           }
                            
                    })
@@ -635,10 +802,20 @@ struct Sheep: View {
                         if self.sheepBackTileSevenToggle == true {
                         
                           self.gameScore.score += 2
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            //Read Current Score
+                            readGameSpeech(word: self.pointConverter)
+                            }
                               
                              } else {
                                 
                               self.gameScore.score -= 2
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            //Read Current Score
+                            readGameSpeech(word: self.pointConverter)
+                            }
                           }
                           
                   })
@@ -654,10 +831,20 @@ struct Sheep: View {
                         if self.sheepBackTileEightToggle == true {
                         
                           self.gameScore.score += 2
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            //Read Current Score
+                            readGameSpeech(word: self.pointConverter)
+                            }
                               
                              } else {
                                 
                               self.gameScore.score -= 2
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            //Read Current Score
+                            readGameSpeech(word: self.pointConverter)
+                            }
                           }
                                   
                    })
@@ -673,10 +860,20 @@ struct Sheep: View {
                         if self.sheepBackTileNineToggle == true {
                         
                          self.gameScore.score += 2
+                           
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            //Read Current Score
+                            readGameSpeech(word: self.pointConverter)
+                            }
                              
                             } else {
                                
                              self.gameScore.score -= 2
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            //Read Current Score
+                            readGameSpeech(word: self.pointConverter)
+                            }
                          }
                                   
                    })
@@ -756,8 +953,20 @@ struct Cow: View {
     @State private var cowTileEightToggle = false
     @State private var cowTileNineToggle = false
     
-    @State private var score = 18
-   
+ 
+   //Variable to convert Point to a String
+         var pointConverter: String {
+             
+             var intToTextConvert = ""
+             var speechText = ""
+             
+             intToTextConvert = String(gameScore.score)
+             speechText = "Your score is \(intToTextConvert)"
+             
+             return speechText
+             
+             
+         }
     
     var body: some View {
         
@@ -779,10 +988,20 @@ struct Cow: View {
                             if self.cowBackTileOneToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                               //Read Current Score
+                               readGameSpeech(word: self.pointConverter)
+                               }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                                
                                
@@ -799,10 +1018,20 @@ struct Cow: View {
                             if self.cowBackTileTwoToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                        
                        
@@ -819,10 +1048,20 @@ struct Cow: View {
                             if self.cowBackTileThreeToggle == true {
                             
                              self.gameScore.score += 2
+                                
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            //Read Current Score
+                            readGameSpeech(word: self.pointConverter)
+                            }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                        
                        
@@ -850,10 +1089,20 @@ struct Cow: View {
                             if self.cowBackTileFourToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                                
                                
@@ -870,10 +1119,20 @@ struct Cow: View {
                             if self.cowBackTileFiveToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                                
                        })
@@ -888,10 +1147,20 @@ struct Cow: View {
                             if self.cowBackTileSixToggle == true {
                             
                              self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                  
                                 } else {
                                    
                                  self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                              }
                                
                        })
@@ -911,10 +1180,20 @@ struct Cow: View {
                             if self.cowBackTileSevenToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                               
                       })
@@ -930,9 +1209,19 @@ struct Cow: View {
                             if self.cowBackTileEightToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               } else {
                                   
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                                       
                        })
@@ -948,10 +1237,20 @@ struct Cow: View {
                             if self.cowBackTileNineToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                                       
                        })
@@ -961,6 +1260,8 @@ struct Cow: View {
                HStack {
                
                     Text("Points: \(self.gameScore.score) ")
+                    
+                
                     
                     
                 }.font(.custom("chalkboard SE", size: 15)).foregroundColor(Color.yellow)
@@ -1033,6 +1334,19 @@ struct Horse: View {
     @State private var horseTileNineToggle = false
     
 
+    //Variable to convert Point to a String
+    var pointConverter: String {
+        
+        var intToTextConvert = ""
+        var speechText = ""
+        
+        intToTextConvert = String(gameScore.score)
+        speechText = "Your score is \(intToTextConvert)"
+        
+        return speechText
+        
+        
+    }
    
     
     var body: some View {
@@ -1058,10 +1372,20 @@ struct Horse: View {
                             if self.horseBackTileOneToggle == true {
                             
                              self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                  
                                 } else {
                                    
                                  self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                              }
                                
                                
@@ -1078,10 +1402,20 @@ struct Horse: View {
                                 if self.horseBackTileTwoToggle == true {
                                 
                                   self.gameScore.score += 2
+                                    
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    //Read Current Score
+                                    readGameSpeech(word: self.pointConverter)
+                                    }
                                       
                                      } else {
                                         
                                       self.gameScore.score -= 2
+                                    
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    //Read Current Score
+                                    readGameSpeech(word: self.pointConverter)
+                                    }
                                   }
                        
                        
@@ -1098,10 +1432,20 @@ struct Horse: View {
                             if self.horseBackTileThreeToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                        
                        
@@ -1129,10 +1473,20 @@ struct Horse: View {
                             if self.horseBackTileFourToggle == true {
                             
                              self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                  
                                 } else {
                                    
                                  self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                              }
                                
                                
@@ -1149,10 +1503,20 @@ struct Horse: View {
                             if self.horseBackTileFiveToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                                
                        })
@@ -1167,10 +1531,20 @@ struct Horse: View {
                             if self.horseBackTileSixToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                                
                        })
@@ -1190,10 +1564,20 @@ struct Horse: View {
                             if self.horseBackTileSevenToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                               
                       })
@@ -1209,10 +1593,20 @@ struct Horse: View {
                             if self.horseBackTileEightToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                                       
                        })
@@ -1228,10 +1622,20 @@ struct Horse: View {
                             if self.horseBackTileNineToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                        })
                   }
@@ -1311,6 +1715,19 @@ struct Pig: View {
     @State private var pigTileNineToggle = false
     
 
+    //Variable to convert Point to a String
+       var pointConverter: String {
+           
+           var intToTextConvert = ""
+           var speechText = ""
+           
+           intToTextConvert = String(gameScore.score)
+           speechText = "Your score is \(intToTextConvert)"
+           
+           return speechText
+           
+           
+       }
    
     
     var body: some View {
@@ -1335,10 +1752,20 @@ struct Pig: View {
                             if self.pigBackTileOneToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                                
                                
@@ -1355,10 +1782,20 @@ struct Pig: View {
                             if self.pigBackTileTwoToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                        
                        
@@ -1375,10 +1812,20 @@ struct Pig: View {
                             if self.pigBackTileThreeToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                        
                        })
@@ -1405,10 +1852,20 @@ struct Pig: View {
                             if self.pigBackTileFourToggle == true {
                             
                              self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                                
                                
@@ -1425,10 +1882,20 @@ struct Pig: View {
                             if self.pigBackTileFiveToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                                
                        })
@@ -1443,10 +1910,20 @@ struct Pig: View {
                             if self.pigBackTileSixToggle == true {
                             
                              self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                                
                        })
@@ -1466,10 +1943,20 @@ struct Pig: View {
                             if self.pigBackTileSevenToggle == true {
                             
                              self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                  
                                 } else {
                                    
                                  self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                              }
                               
                       })
@@ -1485,10 +1972,20 @@ struct Pig: View {
                             if self.pigBackTileEightToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                                       
                        })
@@ -1504,10 +2001,20 @@ struct Pig: View {
                             if self.pigBackTileNineToggle == true {
                             
                              self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                                       
                        })
@@ -1588,7 +2095,19 @@ struct Lama: View {
     @State private var lamaTileNineToggle = false
     
    
-   
+   //Variable to convert Point to a String
+   var pointConverter: String {
+       
+       var intToTextConvert = ""
+       var speechText = ""
+       
+       intToTextConvert = String(gameScore.score)
+       speechText = "Your score is \(intToTextConvert)"
+       
+       return speechText
+       
+       
+   }
     
     
     
@@ -1611,10 +2130,20 @@ struct Lama: View {
                             if self.lamaBackTileOneToggle == true {
                             
                              self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                  
                                 } else {
                                    
                                  self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                              }
                                
                                
@@ -1631,10 +2160,20 @@ struct Lama: View {
                             if self.lamaBackTileTwoToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                        
                        
@@ -1651,10 +2190,20 @@ struct Lama: View {
                             if self.lamaBackTileThreeToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                        
                        
@@ -1682,10 +2231,20 @@ struct Lama: View {
                             if self.lamaBackTileFourToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                                
                                
@@ -1702,10 +2261,20 @@ struct Lama: View {
                             if self.lamaBackTileFiveToggle == true {
                             
                               self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                                
                        })
@@ -1720,10 +2289,20 @@ struct Lama: View {
                             if self.lamaBackTileSixToggle == true {
                             
                              self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                  
                                 } else {
                                    
                                  self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                              }
                                
                        })
@@ -1743,10 +2322,20 @@ struct Lama: View {
                             if self.lamaBackTileSevenToggle == true {
                             
                              self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                  
                                 } else {
                                    
                                  self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                              }
                               
                       })
@@ -1762,10 +2351,20 @@ struct Lama: View {
                             if self.lamaBackTileEightToggle == true {
                             
                              self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                  
                                 } else {
                                    
                                  self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                              }
                                       
                        })
@@ -1781,10 +2380,20 @@ struct Lama: View {
                             if self.lamaBackTileNineToggle == true {
                             
                              self.gameScore.score += 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                                   
                                  } else {
                                     
                                   self.gameScore.score -= 2
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                //Read Current Score
+                                readGameSpeech(word: self.pointConverter)
+                                }
                               }
                                       
                        })
