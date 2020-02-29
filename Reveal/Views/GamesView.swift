@@ -12,7 +12,7 @@ import SwiftUI
 struct Games: View {
     
     //Games Array
-    var gameArray = ["Cow","Horse","Lama","Pig","Rabbit","Sheep"]
+    var gameArray = ["Cow","Horse","Llama","Pig","Rabbit","Sheep"]
     
     @State private var newGame = ""
     
@@ -21,7 +21,6 @@ struct Games: View {
     //Random Game
     func randomGame()-> String {
         
-     //var newGame = ""
         
         return gameArray.randomElement() ?? ""
         
@@ -75,7 +74,7 @@ struct Games: View {
                     
                     Horse()
                     
-                } else if self.newGame == "Lama" {
+                } else if self.newGame == "Llama" {
                     
                     Lama()
                     
@@ -111,6 +110,10 @@ struct Games_Previews: PreviewProvider {
 //GAMES STRUCTS BELOW HERE
 
 struct Rabbit: View {
+    
+    //Environment Object
+    @EnvironmentObject var gameScore: GameScore
+    
     
     //Declare rabbit tiles
     @State private var rabbitTileOne = "rabbitArt1"
@@ -168,7 +171,9 @@ struct Rabbit: View {
     @State private var rabbitTileNineToggle = false
     
     //Rabit Score
-    @State private var score = 18
+   
+   // @State private var score = 18
+   
     
     
     
@@ -196,16 +201,26 @@ struct Rabbit: View {
                         .gesture(TapGesture().onEnded() {
                             
                             self.rabbitBackTileOneToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.rabbitBackTileOneToggle == true {
-                                                     
+                                
+                                /*
+                                
                                self.score += 2
                                 
                                } else {
-                                   
-                                   self.score -= 2
+                                  
+                                self.score -= 2
                             }
-                        
+                        */
+                                
+                                self.gameScore.score += 2
+                                
+                            } else {
+                                
+                                self.gameScore.score -= 2
+                            }
                         
                             
                         })
@@ -217,15 +232,16 @@ struct Rabbit: View {
                         .gesture(TapGesture().onEnded() {
                             
                             self.rabbitBackTileTwoToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.rabbitBackTileTwoToggle == true {
-                                                     
-                               self.score += 2
-                                
+                               
+                               self.gameScore.score += 2
+                                   
                                } else {
                                    
-                                   self.score -= 2
-                            }
+                                   self.gameScore.score -= 2
+                               }
                     
                     
                     })
@@ -236,15 +252,16 @@ struct Rabbit: View {
                         .gesture(TapGesture().onEnded() {
                             
                             self.rabbitBackTileThreeToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.rabbitBackTileThreeToggle == true {
-                                                     
-                               self.score += 2
-                                
+                               
+                               self.gameScore.score += 2
+                                   
                                } else {
                                    
-                                   self.score -= 2
-                            }
+                                   self.gameScore.score -= 2
+                               }
                     
                     
                     })
@@ -266,15 +283,16 @@ struct Rabbit: View {
                         .gesture(TapGesture().onEnded() {
                             
                             self.rabbitBackTileFourToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.rabbitBackTileFourToggle == true {
-                                                     
-                               self.score += 2
-                                
-                               } else {
-                                   
-                                   self.score -= 2
-                            }
+                               
+                                self.gameScore.score += 2
+                                    
+                                } else {
+                                    
+                                    self.gameScore.score -= 2
+                                }
                             
                             
                     })
@@ -285,15 +303,16 @@ struct Rabbit: View {
                         .gesture(TapGesture().onEnded() {
                             
                             self.rabbitBackTileFiveToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.rabbitBackTileFiveToggle == true {
-                                                     
-                               self.score += 2
-                                
+                               
+                               self.gameScore.score += 2
+                                   
                                } else {
                                    
-                                   self.score -= 2
-                            }
+                                   self.gameScore.score -= 2
+                               }
                             
                     })
                     
@@ -304,15 +323,16 @@ struct Rabbit: View {
                         .gesture(TapGesture().onEnded() {
                             
                             self.rabbitBackTileSixToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.rabbitBackTileSixToggle == true {
-                                                     
-                               self.score += 2
                                 
-                               } else {
-                                   
-                                   self.score -= 2
-                            }
+                                self.gameScore.score += 2
+                                    
+                                } else {
+                                    
+                                    self.gameScore.score -= 2
+                                }
                             
                     })
                 }
@@ -326,15 +346,16 @@ struct Rabbit: View {
                        .gesture(TapGesture().onEnded() {
                            
                            self.rabbitBackTileSevenToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                         
                            if self.rabbitBackTileSevenToggle == true {
-                                                 
-                           self.score += 2
                             
+                           self.gameScore.score += 2
+                               
                            } else {
                                
-                               self.score -= 2
-                        }
+                               self.gameScore.score -= 2
+                           }
                            
                    })
                    Spacer().frame(width: 0)
@@ -344,14 +365,15 @@ struct Rabbit: View {
                         .gesture(TapGesture().onEnded() {
                            
                            self.rabbitBackTileEightToggle.toggle()
+                           playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.rabbitBackTileEightToggle == true {
-                                                     
-                               self.score += 2
                                 
+                               self.gameScore.score += 2
+                                   
                                } else {
                                    
-                                   self.score -= 2
+                                   self.gameScore.score -= 2
                                }
                                    
                     })
@@ -362,20 +384,27 @@ struct Rabbit: View {
                         .gesture(TapGesture().onEnded() {
                            
                            self.rabbitBackTileNineToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                          
                             
                             if self.rabbitBackTileNineToggle == true {
                           
-                            self.score += 2
+                            self.gameScore.score += 2
+                                
                             } else {
                                 
-                                self.score -= 2
+                                self.gameScore.score -= 2
                             }
                                    
                     })
                }
                     
-            Text("Score \(self.score)")
+            HStack {
+            
+                Text("Points: \(self.gameScore.score) ")
+                 
+                 
+             }.font(.custom("chalkboard SE", size: 15)).foregroundColor(Color.yellow)
             
             
          Spacer()
@@ -447,6 +476,7 @@ struct Sheep: View {
     @State private var sheepTileNineToggle = false
     
     @State private var score = 18
+    
 
     var body: some View {
         
@@ -466,12 +496,14 @@ struct Sheep: View {
                        .gesture(TapGesture().onEnded() {
                            
                            self.sheepBackTileOneToggle.toggle()
+                        playSound(sound: "Swoosh", type: "mp3")
                         
                         if self.sheepBackTileOneToggle == true {
                         
                           self.score += 2
-                          } else {
                               
+                             } else {
+                                
                               self.score -= 2
                           }
                            
@@ -484,12 +516,14 @@ struct Sheep: View {
                        .gesture(TapGesture().onEnded() {
                            
                            self.sheepBackTileTwoToggle.toggle()
+                        playSound(sound: "Swoosh", type: "mp3")
                         
                         if self.sheepBackTileTwoToggle == true {
                         
                           self.score += 2
-                          } else {
                               
+                             } else {
+                                
                               self.score -= 2
                           }
                    
@@ -504,12 +538,14 @@ struct Sheep: View {
                        .gesture(TapGesture().onEnded() {
                            
                            self.sheepBackTileThreeToggle.toggle()
+                        playSound(sound: "Swoosh", type: "mp3")
                         
                             if self.sheepBackTileThreeToggle == true {
                             
                               self.score += 2
-                              } else {
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                    
@@ -533,12 +569,14 @@ struct Sheep: View {
                        .gesture(TapGesture().onEnded() {
                            
                            self.sheepBackTileFourToggle.toggle()
+                        playSound(sound: "Swoosh", type: "mp3")
                         
                             if self.sheepBackTileFourToggle == true {
                             
                               self.score += 2
-                              } else {
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                            
@@ -551,12 +589,14 @@ struct Sheep: View {
                        .gesture(TapGesture().onEnded() {
                            
                            self.sheepBackTileFiveToggle.toggle()
+                        playSound(sound: "Swoosh", type: "mp3")
                         
                             if self.sheepBackTileFiveToggle == true {
                             
                               self.score += 2
-                              } else {
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                            
@@ -567,12 +607,14 @@ struct Sheep: View {
                        .gesture(TapGesture().onEnded() {
                            
                            self.sheepBackTileSixToggle.toggle()
+                        playSound(sound: "Swoosh", type: "mp3")
                         
                         if self.sheepBackTileSixToggle == true {
                         
                           self.score += 2
-                          } else {
                               
+                             } else {
+                                
                               self.score -= 2
                           }
                            
@@ -588,12 +630,14 @@ struct Sheep: View {
                       .gesture(TapGesture().onEnded() {
                           
                           self.sheepBackTileSevenToggle.toggle()
+                        playSound(sound: "Swoosh", type: "mp3")
                         
                         if self.sheepBackTileSevenToggle == true {
                         
                           self.score += 2
-                          } else {
                               
+                             } else {
+                                
                               self.score -= 2
                           }
                           
@@ -605,12 +649,14 @@ struct Sheep: View {
                        .gesture(TapGesture().onEnded() {
                           
                           self.sheepBackTileEightToggle.toggle()
+                        playSound(sound: "Swoosh", type: "mp3")
                         
                         if self.sheepBackTileEightToggle == true {
                         
                           self.score += 2
-                          } else {
                               
+                             } else {
+                                
                               self.score -= 2
                           }
                                   
@@ -622,20 +668,26 @@ struct Sheep: View {
                        .gesture(TapGesture().onEnded() {
                           
                           self.sheepBackTileNineToggle.toggle()
+                        playSound(sound: "Swoosh", type: "mp3")
                         
                         if self.sheepBackTileNineToggle == true {
                         
-                          self.score += 2
-                          } else {
-                              
-                              self.score -= 2
-                          }
+                         self.score += 2
+                             
+                            } else {
+                               
+                             self.score -= 2
+                         }
                                   
                    })
               }
            
+            HStack {
            
-           Text("Score \(self.score)")
+                Text("Points: \(self.score) ")
+                
+                
+            }.font(.custom("chalkboard SE", size: 15)).foregroundColor(Color.yellow)
          Spacer()
        }
         
@@ -702,6 +754,7 @@ struct Cow: View {
     @State private var cowTileNineToggle = false
     
     @State private var score = 18
+   
     
     var body: some View {
         
@@ -718,12 +771,14 @@ struct Cow: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.cowBackTileOneToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.cowBackTileOneToggle == true {
                             
                               self.score += 2
-                              } else {
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                                
@@ -736,12 +791,14 @@ struct Cow: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.cowBackTileTwoToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.cowBackTileTwoToggle == true {
                             
                               self.score += 2
-                              } else {
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                        
@@ -754,12 +811,14 @@ struct Cow: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.cowBackTileThreeToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.cowBackTileThreeToggle == true {
                             
-                              self.score += 2
-                              } else {
+                             self.score += 2
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                        
@@ -783,12 +842,14 @@ struct Cow: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.cowBackTileFourToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.cowBackTileFourToggle == true {
                             
                               self.score += 2
-                              } else {
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                                
@@ -801,12 +862,14 @@ struct Cow: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.cowBackTileFiveToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.cowBackTileFiveToggle == true {
                             
                               self.score += 2
-                              } else {
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                                
@@ -817,14 +880,16 @@ struct Cow: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.cowBackTileSixToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.cowBackTileSixToggle == true {
                             
-                              self.score += 2
-                              } else {
-                                  
-                                  self.score -= 2
-                              }
+                             self.score += 2
+                                 
+                                } else {
+                                   
+                                 self.score -= 2
+                             }
                                
                        })
                    }
@@ -838,12 +903,14 @@ struct Cow: View {
                           .gesture(TapGesture().onEnded() {
                               
                               self.cowBackTileSevenToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.cowBackTileSevenToggle == true {
                             
                               self.score += 2
-                              } else {
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                               
@@ -855,6 +922,7 @@ struct Cow: View {
                            .gesture(TapGesture().onEnded() {
                               
                               self.cowBackTileEightToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.cowBackTileEightToggle == true {
                             
@@ -872,12 +940,14 @@ struct Cow: View {
                            .gesture(TapGesture().onEnded() {
                               
                               self.cowBackTileNineToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.cowBackTileNineToggle == true {
                             
                               self.score += 2
-                              } else {
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                                       
@@ -885,7 +955,12 @@ struct Cow: View {
                   }
                
                
-               Text("Score \(self.score)")
+               HStack {
+               
+                    Text("Points: \(self.score) ")
+                    
+                    
+                }.font(.custom("chalkboard SE", size: 15)).foregroundColor(Color.yellow)
             Spacer()
            }
             
@@ -952,6 +1027,7 @@ struct Horse: View {
     @State private var horseTileNineToggle = false
     
     @State private var score = 18
+   
     
     var body: some View {
         
@@ -970,14 +1046,17 @@ struct Horse: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.horseBackTileOneToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
+                            
                             
                             if self.horseBackTileOneToggle == true {
                             
-                              self.score += 2
-                              } else {
-                                  
-                                  self.score -= 2
-                              }
+                             self.score += 2
+                                 
+                                } else {
+                                   
+                                 self.score -= 2
+                             }
                                
                                
                            })
@@ -988,6 +1067,16 @@ struct Horse: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.horseBackTileTwoToggle.toggle()
+                                playSound(sound: "Swoosh", type: "mp3")
+                            
+                                if self.horseBackTileTwoToggle == true {
+                                
+                                  self.score += 2
+                                      
+                                     } else {
+                                        
+                                      self.score -= 2
+                                  }
                        
                        
                        })
@@ -998,12 +1087,14 @@ struct Horse: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.horseBackTileThreeToggle.toggle()
+                               playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.horseBackTileThreeToggle == true {
                             
                               self.score += 2
-                              } else {
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                        
@@ -1027,14 +1118,16 @@ struct Horse: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.horseBackTileFourToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.horseBackTileFourToggle == true {
                             
-                              self.score += 2
-                              } else {
-                                  
-                                  self.score -= 2
-                              }
+                             self.score += 2
+                                 
+                                } else {
+                                   
+                                 self.score -= 2
+                             }
                                
                                
                        })
@@ -1045,12 +1138,14 @@ struct Horse: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.horseBackTileFiveToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.horseBackTileFiveToggle == true {
                             
                               self.score += 2
-                              } else {
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                                
@@ -1061,12 +1156,14 @@ struct Horse: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.horseBackTileSixToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.horseBackTileSixToggle == true {
                             
                               self.score += 2
-                              } else {
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                                
@@ -1082,12 +1179,14 @@ struct Horse: View {
                           .gesture(TapGesture().onEnded() {
                               
                               self.horseBackTileSevenToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.horseBackTileSevenToggle == true {
                             
                               self.score += 2
-                              } else {
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                               
@@ -1099,12 +1198,14 @@ struct Horse: View {
                            .gesture(TapGesture().onEnded() {
                               
                               self.horseBackTileEightToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.horseBackTileEightToggle == true {
                             
                               self.score += 2
-                              } else {
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                                       
@@ -1116,20 +1217,26 @@ struct Horse: View {
                            .gesture(TapGesture().onEnded() {
                               
                               self.horseBackTileNineToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.horseBackTileNineToggle == true {
                             
                               self.score += 2
-                              } else {
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
-                                      
                        })
                   }
                
                
-               Text("Score \(self.score)")
+               HStack {
+               
+                    Text("Points: \(self.score) ")
+                    
+                    
+                }.font(.custom("chalkboard SE", size: 15)).foregroundColor(Color.yellow)
               Spacer()
            }
             
@@ -1195,6 +1302,7 @@ struct Pig: View {
     @State private var pigTileNineToggle = false
     
     @State private var score = 18
+   
     
     var body: some View {
         
@@ -1213,12 +1321,14 @@ struct Pig: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.pigBackTileOneToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.pigBackTileOneToggle == true {
                             
                               self.score += 2
-                              } else {
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                                
@@ -1231,12 +1341,14 @@ struct Pig: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.pigBackTileTwoToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.pigBackTileTwoToggle == true {
                             
                               self.score += 2
-                              } else {
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                        
@@ -1249,15 +1361,16 @@ struct Pig: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.pigBackTileThreeToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.pigBackTileThreeToggle == true {
                             
                               self.score += 2
-                              } else {
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
-                       
                        
                        })
                        
@@ -1278,12 +1391,14 @@ struct Pig: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.pigBackTileFourToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.pigBackTileFourToggle == true {
                             
-                              self.score += 2
-                              } else {
+                             self.score += 2
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                                
@@ -1296,12 +1411,14 @@ struct Pig: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.pigBackTileFiveToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.pigBackTileFiveToggle == true {
                             
                               self.score += 2
-                              } else {
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                                
@@ -1312,12 +1429,14 @@ struct Pig: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.pigBackTileSixToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.pigBackTileSixToggle == true {
                             
-                              self.score += 2
-                              } else {
+                             self.score += 2
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                                
@@ -1333,14 +1452,16 @@ struct Pig: View {
                           .gesture(TapGesture().onEnded() {
                               
                               self.pigBackTileSevenToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.pigBackTileSevenToggle == true {
                             
-                              self.score += 2
-                              } else {
-                                  
-                                  self.score -= 2
-                              }
+                             self.score += 2
+                                 
+                                } else {
+                                   
+                                 self.score -= 2
+                             }
                               
                       })
                       Spacer().frame(width: 0)
@@ -1350,12 +1471,14 @@ struct Pig: View {
                            .gesture(TapGesture().onEnded() {
                               
                               self.pigBackTileEightToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.pigBackTileEightToggle == true {
                             
                               self.score += 2
-                              } else {
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                                       
@@ -1367,19 +1490,26 @@ struct Pig: View {
                            .gesture(TapGesture().onEnded() {
                               
                               self.pigBackTileNineToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.pigBackTileNineToggle == true {
                             
-                              self.score += 2
-                              } else {
+                             self.score += 2
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                                       
                        })
                   }
                
-               Text("Score \(self.score)")
+               HStack {
+               
+                    Text("Points: \(self.score) ")
+                    
+                    
+                }.font(.custom("chalkboard SE", size: 15)).foregroundColor(Color.yellow)
                
               Spacer()
            }
@@ -1446,6 +1576,7 @@ struct Lama: View {
     @State private var lamaTileNineToggle = false
     
     @State private var score = 18
+   
     
     
     
@@ -1463,14 +1594,16 @@ struct Lama: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.lamaBackTileOneToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.lamaBackTileOneToggle == true {
                             
-                              self.score += 2
-                              } else {
-                                  
-                                  self.score -= 2
-                              }
+                             self.score += 2
+                                 
+                                } else {
+                                   
+                                 self.score -= 2
+                             }
                                
                                
                            })
@@ -1481,12 +1614,14 @@ struct Lama: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.lamaBackTileTwoToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.lamaBackTileTwoToggle == true {
                             
                               self.score += 2
-                              } else {
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                        
@@ -1499,12 +1634,14 @@ struct Lama: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.lamaBackTileThreeToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.lamaBackTileThreeToggle == true {
                             
                               self.score += 2
-                              } else {
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                        
@@ -1528,12 +1665,14 @@ struct Lama: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.lamaBackTileFourToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.lamaBackTileFourToggle == true {
                             
                               self.score += 2
-                              } else {
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                                
@@ -1546,12 +1685,14 @@ struct Lama: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.lamaBackTileFiveToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.lamaBackTileFiveToggle == true {
                             
                               self.score += 2
-                              } else {
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                                
@@ -1562,14 +1703,16 @@ struct Lama: View {
                            .gesture(TapGesture().onEnded() {
                                
                                self.lamaBackTileSixToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.lamaBackTileSixToggle == true {
                             
-                              self.score += 2
-                              } else {
-                                  
-                                  self.score -= 2
-                              }
+                             self.score += 2
+                                 
+                                } else {
+                                   
+                                 self.score -= 2
+                             }
                                
                        })
                    }
@@ -1583,14 +1726,16 @@ struct Lama: View {
                           .gesture(TapGesture().onEnded() {
                               
                               self.lamaBackTileSevenToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.lamaBackTileSevenToggle == true {
                             
-                              self.score += 2
-                              } else {
-                                  
-                                  self.score -= 2
-                              }
+                             self.score += 2
+                                 
+                                } else {
+                                   
+                                 self.score -= 2
+                             }
                               
                       })
                       Spacer().frame(width: 0)
@@ -1600,14 +1745,16 @@ struct Lama: View {
                            .gesture(TapGesture().onEnded() {
                               
                               self.lamaBackTileEightToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.lamaBackTileEightToggle == true {
                             
-                              self.score += 2
-                              } else {
-                                  
-                                  self.score -= 2
-                              }
+                             self.score += 2
+                                 
+                                } else {
+                                   
+                                 self.score -= 2
+                             }
                                       
                        })
                       Spacer().frame(width: 0)
@@ -1617,19 +1764,26 @@ struct Lama: View {
                            .gesture(TapGesture().onEnded() {
                               
                               self.lamaBackTileNineToggle.toggle()
+                            playSound(sound: "Swoosh", type: "mp3")
                             
                             if self.lamaBackTileNineToggle == true {
                             
-                              self.score += 2
-                              } else {
+                             self.score += 2
                                   
+                                 } else {
+                                    
                                   self.score -= 2
                               }
                                       
                        })
                   }
                
-               Text("Score \(self.score)")
+               HStack {
+               
+                    Text("Points: \(self.score) ")
+                    
+                    
+                }.font(.custom("chalkboard SE", size: 15)).foregroundColor(Color.yellow)
                
             Spacer()
            }

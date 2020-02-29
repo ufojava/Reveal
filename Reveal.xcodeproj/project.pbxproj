@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0358A4822409DD6A006AE95F /* GameStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0358A4812409DD6A006AE95F /* GameStructure.swift */; };
 		03EF37712402EFFA00B04E6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF37702402EFFA00B04E6A /* AppDelegate.swift */; };
 		03EF37732402EFFA00B04E6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF37722402EFFA00B04E6A /* SceneDelegate.swift */; };
 		03EF37752402EFFA00B04E6A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF37742402EFFA00B04E6A /* ContentView.swift */; };
@@ -22,9 +23,11 @@
 		03EF379F2408948700B04E6A /* sheep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 03EF379E2408948700B04E6A /* sheep.mp3 */; };
 		03EF37A2240898E400B04E6A /* rabbit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 03EF37A0240898E400B04E6A /* rabbit.mp3 */; };
 		03EF37A3240898E400B04E6A /* llama.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 03EF37A1240898E400B04E6A /* llama.mp3 */; };
+		03EF37A52408E25200B04E6A /* Swoosh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 03EF37A42408E25100B04E6A /* Swoosh.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0358A4812409DD6A006AE95F /* GameStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStructure.swift; sourceTree = "<group>"; };
 		03EF376D2402EFFA00B04E6A /* Reveal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reveal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03EF37702402EFFA00B04E6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03EF37722402EFFA00B04E6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 		03EF379E2408948700B04E6A /* sheep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sheep.mp3; sourceTree = "<group>"; };
 		03EF37A0240898E400B04E6A /* rabbit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rabbit.mp3; sourceTree = "<group>"; };
 		03EF37A1240898E400B04E6A /* llama.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = llama.mp3; sourceTree = "<group>"; };
+		03EF37A42408E25100B04E6A /* Swoosh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Swoosh.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,7 @@
 				03EF37982408921200B04E6A /* cow.mp3 */,
 				03EF37A1240898E400B04E6A /* llama.mp3 */,
 				03EF37A0240898E400B04E6A /* rabbit.mp3 */,
+				03EF37A42408E25100B04E6A /* Swoosh.mp3 */,
 				03EF379A2408928700B04E6A /* horse.mp3 */,
 				03EF379E2408948700B04E6A /* sheep.mp3 */,
 				03EF379C240892C400B04E6A /* pig.mp3 */,
@@ -114,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				03EF37902408771100B04E6A /* AnimalSound.swift */,
+				0358A4812409DD6A006AE95F /* GameStructure.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -179,6 +185,7 @@
 				03EF377D2402EFFD00B04E6A /* LaunchScreen.storyboard in Resources */,
 				03EF379D240892C400B04E6A /* pig.mp3 in Resources */,
 				03EF379F2408948700B04E6A /* sheep.mp3 in Resources */,
+				03EF37A52408E25200B04E6A /* Swoosh.mp3 in Resources */,
 				03EF377A2402EFFD00B04E6A /* Preview Assets.xcassets in Resources */,
 				03EF37A3240898E400B04E6A /* llama.mp3 in Resources */,
 				03EF37A2240898E400B04E6A /* rabbit.mp3 in Resources */,
@@ -200,6 +207,7 @@
 				03EF37732402EFFA00B04E6A /* SceneDelegate.swift in Sources */,
 				03EF37862403323100B04E6A /* GamesView.swift in Sources */,
 				03EF37752402EFFA00B04E6A /* ContentView.swift in Sources */,
+				0358A4822409DD6A006AE95F /* GameStructure.swift in Sources */,
 				03EF37952408862200B04E6A /* AudioTextFile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

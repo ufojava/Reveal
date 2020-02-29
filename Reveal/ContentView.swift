@@ -11,22 +11,27 @@ import SwiftUI
 struct ContentView: View {
     
     
-    
+    //Environment Object
+    @EnvironmentObject var gameScore: GameScore
     
     
     //Games Array
-              var gameArray = ["Cow","Horse","Lama","Pig","Rabbit","Sheep"]
+              var gameArray = ["Cow","Horse","Llama","Pig","Rabbit","Sheep"]
     
               
               //Variables
               
-              @State private var newGame = ""
+            @State private var newGame = ""
               
-              @State private var launchNewGame = false
+            @State private var launchNewGame = false
     
-             @State private var pickedAnimal = ""
-             @State private var playerAnswer = ""
-             @State private var showAnswer = false
+            @State private var pickedAnimal = ""
+            @State private var playerAnswer = ""
+            @State private var showAnswer = false
+            
+            //Count the number of tries
+            @State private var guessAnimalCount = 0
+            @State private var guessCountMessage = "Try guessing using Tiles"
     
           
     
@@ -51,20 +56,42 @@ struct ContentView: View {
     func processSelection(inSelection: String)  {
         
         //Show Answer
-        self.showAnswer.toggle()
+        //self.showAnswer.toggle()
         
         //Variable
         self.pickedAnimal = inSelection
+    
+        //Count test
+        tryCount()
+        
         
         
         if self.pickedAnimal == self.newGame {
             
             self.playerAnswer = "Correct"
-            
+            self.guessAnimalCount += 1
         } else {
             
-            self.playerAnswer = "Incorrect. Try Tiles"
+            self.playerAnswer = "Incorrect"
+            self.guessAnimalCount += 1
         }
+    }
+    
+    //Function to process try count
+    func tryCount() {
+        
+            if self.guessAnimalCount > 0 {
+                      
+              self.playerAnswer = "Maximum Guess Count Reached"
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    
+                    self.playerAnswer = self.guessCountMessage
+                }
+              return
+          }
+
+        
     }
 
     
@@ -87,7 +114,11 @@ struct ContentView: View {
                                
                                Button(action: {
                                    
-                                   self.newGame = ""
+                                    self.newGame = ""
+                                    self.pickedAnimal = ""
+                                    self.playerAnswer = ""
+                                    self.guessAnimalCount = 0
+                                
                                    
                                    self.newGame = self.randomGame()
                                    self.launchNewGame.toggle()
@@ -106,6 +137,9 @@ struct ContentView: View {
                                     .clipShape(Circle())
                                     .overlay(Circle().stroke(Color.white,lineWidth: 3))
                                        .frame(width:200,height: 200)
+                                
+                                    
+                                
                                 
                                 }
                                
@@ -135,10 +169,19 @@ struct ContentView: View {
                                         
                                         selectionIcon(image: "cow2", legend: "Cow")
                                             .onTapGesture {
+                                                
+                                                
+                                                
+                                                if self.guessAnimalCount > 0 {
+                                                    
+                                                    //Try Guess Count
+                                                    self.tryCount()
+                                                    
+                                                } else {
                                                 playSound(sound: "cow", type: "mp3")
                                                 
                                                 self.processSelection(inSelection: "Cow")
-                                                
+                                                }
                                         }
                                             
                                         
@@ -160,8 +203,17 @@ struct ContentView: View {
                                         selectionIcon(image: "horse", legend: "Horse")
                                         .onTapGesture {
                                             
+                                            if self.guessAnimalCount > 0 {
+                                            
+                                                //Try Guess Count
+                                                self.tryCount()
+                                            
+                                            } else {
+                                                
                                             playSound(sound: "horse", type: "mp3")
                                             self.processSelection(inSelection: "Horse")
+                                                
+                                            }
                                         }
                                         
                                         
@@ -178,8 +230,16 @@ struct ContentView: View {
                                         selectionIcon(image: "pig", legend: "Pig")
                                         .onTapGesture {
                                             
+                                            if self.guessAnimalCount > 0 {
+                                                
+                                                //Try Guess Count
+                                                self.tryCount()
+                                            } else {
+                                            
                                             playSound(sound: "pig", type: "mp3")
                                             self.processSelection(inSelection: "Pig")
+                                                
+                                            }
                                         }
                                         
                                         
@@ -194,11 +254,19 @@ struct ContentView: View {
                                         
                                     }) {
                                         
-                                        selectionIcon(image: "llama", legend: "LLama")
+                                        selectionIcon(image: "llama", legend: "Llama")
                                         .onTapGesture {
+                                            
+                                            if self.guessAnimalCount > 0 {
+                                                
+                                                //Try guess count
+                                                self.tryCount()
+                                            } else {
+                                                
+                                            
                                             playSound(sound: "llama", type: "mp3")
                                             self.processSelection(inSelection: "Llama")
-                                        
+                                            }
                                         }
                                         
                                     }
@@ -212,10 +280,19 @@ struct ContentView: View {
                                         
                                         selectionIcon(image: "rabbit", legend: "Rabbit")
                                         .onTapGesture {
+                                            
+                                            if self.guessAnimalCount > 0 {
+                                                
+                                                
+                                                //Try guess count
+                                                self.tryCount()
+                                                
+                                            } else {
                                             playSound(sound: "rabbit", type: "mp3")
                                             self.processSelection(inSelection: "Rabbit")
                                         }
                                         
+                                        }
                                         
                                     }//end of Button
                                     
@@ -229,8 +306,16 @@ struct ContentView: View {
                                         selectionIcon(image: "sheep", legend: "Sheep")
                                         .onTapGesture {
                                             
+                                            if self.guessAnimalCount > 0 {
+                                                
+                                                //Try guess count
+                                                self.tryCount()
+                                                
+                                            } else {
+                                            
                                             playSound(sound: "sheep", type: "mp3")
                                             self.processSelection(inSelection: "Sheep")
+                                            }
                                         }
                                         
                                         
@@ -243,16 +328,11 @@ struct ContentView: View {
                             
                             HStack {
                                 
-                                if showAnswer {
-                            
-                            Text("Your selection is: \(self.pickedAnimal)")
-                                .font(.custom("chalkboard SE", size: 15))
-                                .foregroundColor(Color.yellow)
-                                
-                                }
-                                
                                 Text("\(self.playerAnswer)")
-                                .foregroundColor(Color.red)
+                                    .foregroundColor(Color.yellow)
+                                    .font(.custom("chalkboard SE", size: 15))
+                                
+                                Text("update \(gameScore.score)")
                                 
                             }
                             
@@ -277,7 +357,7 @@ struct ContentView: View {
                                        Horse()
                                   
                                        
-                                   } else if self.newGame == "Lama" {
+                                   } else if self.newGame == "Llama" {
                                        
                                        Lama()
                                   
@@ -300,8 +380,6 @@ struct ContentView: View {
                                }
             
                           
-                            
-                           // Spacer()
                             
                                
                            }
