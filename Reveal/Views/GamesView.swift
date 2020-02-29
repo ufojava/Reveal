@@ -170,9 +170,7 @@ struct Rabbit: View {
     @State private var rabbitTileEightToggle = false
     @State private var rabbitTileNineToggle = false
     
-    //Rabit Score
-   
-   // @State private var score = 18
+  
    
     
     
@@ -420,6 +418,9 @@ struct Rabbit: View {
 
 struct Sheep: View {
     
+    //Environment Object
+    @EnvironmentObject var gameScore: GameScore
+    
     //Declare sheep tiles
     @State private var sheepTileOne = "sheepArt1"
     @State private var sheepTileTwo = "sheepArt2"
@@ -475,7 +476,6 @@ struct Sheep: View {
     @State private var sheepTileEightToggle = false
     @State private var sheepTileNineToggle = false
     
-    @State private var score = 18
     
 
     var body: some View {
@@ -500,11 +500,11 @@ struct Sheep: View {
                         
                         if self.sheepBackTileOneToggle == true {
                         
-                          self.score += 2
+                          self.gameScore.score += 2
                               
                              } else {
                                 
-                              self.score -= 2
+                              self.gameScore.score -= 2
                           }
                            
                            
@@ -520,11 +520,11 @@ struct Sheep: View {
                         
                         if self.sheepBackTileTwoToggle == true {
                         
-                          self.score += 2
+                          self.gameScore.score += 2
                               
                              } else {
                                 
-                              self.score -= 2
+                              self.gameScore.score -= 2
                           }
                    
                    
@@ -542,11 +542,11 @@ struct Sheep: View {
                         
                             if self.sheepBackTileThreeToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                    
                    
@@ -573,11 +573,11 @@ struct Sheep: View {
                         
                             if self.sheepBackTileFourToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                            
                            
@@ -593,11 +593,11 @@ struct Sheep: View {
                         
                             if self.sheepBackTileFiveToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                            
                    })
@@ -611,11 +611,11 @@ struct Sheep: View {
                         
                         if self.sheepBackTileSixToggle == true {
                         
-                          self.score += 2
+                          self.gameScore.score += 2
                               
                              } else {
                                 
-                              self.score -= 2
+                              self.gameScore.score -= 2
                           }
                            
                    })
@@ -634,11 +634,11 @@ struct Sheep: View {
                         
                         if self.sheepBackTileSevenToggle == true {
                         
-                          self.score += 2
+                          self.gameScore.score += 2
                               
                              } else {
                                 
-                              self.score -= 2
+                              self.gameScore.score -= 2
                           }
                           
                   })
@@ -653,11 +653,11 @@ struct Sheep: View {
                         
                         if self.sheepBackTileEightToggle == true {
                         
-                          self.score += 2
+                          self.gameScore.score += 2
                               
                              } else {
                                 
-                              self.score -= 2
+                              self.gameScore.score -= 2
                           }
                                   
                    })
@@ -672,11 +672,11 @@ struct Sheep: View {
                         
                         if self.sheepBackTileNineToggle == true {
                         
-                         self.score += 2
+                         self.gameScore.score += 2
                              
                             } else {
                                
-                             self.score -= 2
+                             self.gameScore.score -= 2
                          }
                                   
                    })
@@ -684,7 +684,7 @@ struct Sheep: View {
            
             HStack {
            
-                Text("Points: \(self.score) ")
+                Text("Points: \(self.gameScore.score) ")
                 
                 
             }.font(.custom("chalkboard SE", size: 15)).foregroundColor(Color.yellow)
@@ -697,6 +697,9 @@ struct Sheep: View {
 }
 
 struct Cow: View {
+    
+    //Environment Object
+    @EnvironmentObject var gameScore: GameScore
     
     //Declare cow tiles
     @State private var cowTileOne = "cowArt1"
@@ -775,11 +778,11 @@ struct Cow: View {
                             
                             if self.cowBackTileOneToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                                
                                
@@ -795,11 +798,11 @@ struct Cow: View {
                             
                             if self.cowBackTileTwoToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                        
                        
@@ -815,11 +818,11 @@ struct Cow: View {
                             
                             if self.cowBackTileThreeToggle == true {
                             
-                             self.score += 2
+                             self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                        
                        
@@ -846,11 +849,11 @@ struct Cow: View {
                             
                             if self.cowBackTileFourToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                                
                                
@@ -866,11 +869,11 @@ struct Cow: View {
                             
                             if self.cowBackTileFiveToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                                
                        })
@@ -884,11 +887,11 @@ struct Cow: View {
                             
                             if self.cowBackTileSixToggle == true {
                             
-                             self.score += 2
+                             self.gameScore.score += 2
                                  
                                 } else {
                                    
-                                 self.score -= 2
+                                 self.gameScore.score -= 2
                              }
                                
                        })
@@ -907,11 +910,11 @@ struct Cow: View {
                             
                             if self.cowBackTileSevenToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                               
                       })
@@ -926,10 +929,10 @@ struct Cow: View {
                             
                             if self.cowBackTileEightToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                               } else {
                                   
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                                       
                        })
@@ -944,11 +947,11 @@ struct Cow: View {
                             
                             if self.cowBackTileNineToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                                       
                        })
@@ -957,7 +960,7 @@ struct Cow: View {
                
                HStack {
                
-                    Text("Points: \(self.score) ")
+                    Text("Points: \(self.gameScore.score) ")
                     
                     
                 }.font(.custom("chalkboard SE", size: 15)).foregroundColor(Color.yellow)
@@ -970,6 +973,9 @@ struct Cow: View {
     }
     
 struct Horse: View {
+    
+    //Environment Object
+    @EnvironmentObject var gameScore: GameScore
     
     //Declare Horse tiles
     @State private var horseTileOne = "horseArt1"
@@ -1026,7 +1032,7 @@ struct Horse: View {
     @State private var horseTileEightToggle = false
     @State private var horseTileNineToggle = false
     
-    @State private var score = 18
+
    
     
     var body: some View {
@@ -1051,11 +1057,11 @@ struct Horse: View {
                             
                             if self.horseBackTileOneToggle == true {
                             
-                             self.score += 2
+                             self.gameScore.score += 2
                                  
                                 } else {
                                    
-                                 self.score -= 2
+                                 self.gameScore.score -= 2
                              }
                                
                                
@@ -1071,11 +1077,11 @@ struct Horse: View {
                             
                                 if self.horseBackTileTwoToggle == true {
                                 
-                                  self.score += 2
+                                  self.gameScore.score += 2
                                       
                                      } else {
                                         
-                                      self.score -= 2
+                                      self.gameScore.score -= 2
                                   }
                        
                        
@@ -1091,11 +1097,11 @@ struct Horse: View {
                             
                             if self.horseBackTileThreeToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                        
                        
@@ -1122,11 +1128,11 @@ struct Horse: View {
                             
                             if self.horseBackTileFourToggle == true {
                             
-                             self.score += 2
+                             self.gameScore.score += 2
                                  
                                 } else {
                                    
-                                 self.score -= 2
+                                 self.gameScore.score -= 2
                              }
                                
                                
@@ -1142,11 +1148,11 @@ struct Horse: View {
                             
                             if self.horseBackTileFiveToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                                
                        })
@@ -1160,11 +1166,11 @@ struct Horse: View {
                             
                             if self.horseBackTileSixToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                                
                        })
@@ -1183,11 +1189,11 @@ struct Horse: View {
                             
                             if self.horseBackTileSevenToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                               
                       })
@@ -1202,11 +1208,11 @@ struct Horse: View {
                             
                             if self.horseBackTileEightToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                                       
                        })
@@ -1221,11 +1227,11 @@ struct Horse: View {
                             
                             if self.horseBackTileNineToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                        })
                   }
@@ -1233,7 +1239,7 @@ struct Horse: View {
                
                HStack {
                
-                    Text("Points: \(self.score) ")
+                    Text("Points: \(self.gameScore.score) ")
                     
                     
                 }.font(.custom("chalkboard SE", size: 15)).foregroundColor(Color.yellow)
@@ -1245,6 +1251,9 @@ struct Horse: View {
 
 
 struct Pig: View {
+    
+    //Environment Object
+    @EnvironmentObject var gameScore: GameScore
     
     //Declare Pig tiles
     @State private var pigTileOne = "pigArt1"
@@ -1301,7 +1310,7 @@ struct Pig: View {
     @State private var pigTileEightToggle = false
     @State private var pigTileNineToggle = false
     
-    @State private var score = 18
+
    
     
     var body: some View {
@@ -1325,11 +1334,11 @@ struct Pig: View {
                             
                             if self.pigBackTileOneToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                                
                                
@@ -1345,11 +1354,11 @@ struct Pig: View {
                             
                             if self.pigBackTileTwoToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                        
                        
@@ -1365,11 +1374,11 @@ struct Pig: View {
                             
                             if self.pigBackTileThreeToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                        
                        })
@@ -1395,11 +1404,11 @@ struct Pig: View {
                             
                             if self.pigBackTileFourToggle == true {
                             
-                             self.score += 2
+                             self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                                
                                
@@ -1415,11 +1424,11 @@ struct Pig: View {
                             
                             if self.pigBackTileFiveToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                                
                        })
@@ -1433,11 +1442,11 @@ struct Pig: View {
                             
                             if self.pigBackTileSixToggle == true {
                             
-                             self.score += 2
+                             self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                                
                        })
@@ -1456,11 +1465,11 @@ struct Pig: View {
                             
                             if self.pigBackTileSevenToggle == true {
                             
-                             self.score += 2
+                             self.gameScore.score += 2
                                  
                                 } else {
                                    
-                                 self.score -= 2
+                                 self.gameScore.score -= 2
                              }
                               
                       })
@@ -1475,11 +1484,11 @@ struct Pig: View {
                             
                             if self.pigBackTileEightToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                                       
                        })
@@ -1494,11 +1503,11 @@ struct Pig: View {
                             
                             if self.pigBackTileNineToggle == true {
                             
-                             self.score += 2
+                             self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                                       
                        })
@@ -1506,7 +1515,7 @@ struct Pig: View {
                
                HStack {
                
-                    Text("Points: \(self.score) ")
+                    Text("Points: \(self.gameScore.score) ")
                     
                     
                 }.font(.custom("chalkboard SE", size: 15)).foregroundColor(Color.yellow)
@@ -1519,6 +1528,9 @@ struct Pig: View {
 
 
 struct Lama: View {
+    
+    //Environment Object
+    @EnvironmentObject var gameScore: GameScore
     
     //Declare Lama tiles
     @State private var lamaTileOne = "lamaArt1"
@@ -1575,7 +1587,7 @@ struct Lama: View {
     @State private var lamaTileEightToggle = false
     @State private var lamaTileNineToggle = false
     
-    @State private var score = 18
+   
    
     
     
@@ -1598,11 +1610,11 @@ struct Lama: View {
                             
                             if self.lamaBackTileOneToggle == true {
                             
-                             self.score += 2
+                             self.gameScore.score += 2
                                  
                                 } else {
                                    
-                                 self.score -= 2
+                                 self.gameScore.score -= 2
                              }
                                
                                
@@ -1618,11 +1630,11 @@ struct Lama: View {
                             
                             if self.lamaBackTileTwoToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                        
                        
@@ -1638,11 +1650,11 @@ struct Lama: View {
                             
                             if self.lamaBackTileThreeToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                        
                        
@@ -1669,11 +1681,11 @@ struct Lama: View {
                             
                             if self.lamaBackTileFourToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                                
                                
@@ -1689,11 +1701,11 @@ struct Lama: View {
                             
                             if self.lamaBackTileFiveToggle == true {
                             
-                              self.score += 2
+                              self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                                
                        })
@@ -1707,11 +1719,11 @@ struct Lama: View {
                             
                             if self.lamaBackTileSixToggle == true {
                             
-                             self.score += 2
+                             self.gameScore.score += 2
                                  
                                 } else {
                                    
-                                 self.score -= 2
+                                 self.gameScore.score -= 2
                              }
                                
                        })
@@ -1730,11 +1742,11 @@ struct Lama: View {
                             
                             if self.lamaBackTileSevenToggle == true {
                             
-                             self.score += 2
+                             self.gameScore.score += 2
                                  
                                 } else {
                                    
-                                 self.score -= 2
+                                 self.gameScore.score -= 2
                              }
                               
                       })
@@ -1749,11 +1761,11 @@ struct Lama: View {
                             
                             if self.lamaBackTileEightToggle == true {
                             
-                             self.score += 2
+                             self.gameScore.score += 2
                                  
                                 } else {
                                    
-                                 self.score -= 2
+                                 self.gameScore.score -= 2
                              }
                                       
                        })
@@ -1768,11 +1780,11 @@ struct Lama: View {
                             
                             if self.lamaBackTileNineToggle == true {
                             
-                             self.score += 2
+                             self.gameScore.score += 2
                                   
                                  } else {
                                     
-                                  self.score -= 2
+                                  self.gameScore.score -= 2
                               }
                                       
                        })
@@ -1780,7 +1792,7 @@ struct Lama: View {
                
                HStack {
                
-                    Text("Points: \(self.score) ")
+                    Text("Points: \(self.gameScore.score) ")
                     
                     
                 }.font(.custom("chalkboard SE", size: 15)).foregroundColor(Color.yellow)
