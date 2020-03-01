@@ -2438,7 +2438,7 @@ struct FlipTile: View {
             
             
             //Set Animation
-                 .rotation3DEffect(self.tileImage ? Angle(degrees: 180): Angle(degrees: 360), axis: (x:CGFloat(0), y:CGFloat(10), z:CGFloat(0)))
+                 .rotation3DEffect(self.tileImage ? Angle(degrees: 360): Angle(degrees: 360), axis: (x:CGFloat(0), y:CGFloat(10), z:CGFloat(0)))
                            .animation(.default)
             
       

@@ -24,6 +24,8 @@ struct ContentView: View {
             @State private var newGame = ""
               
             @State private var launchNewGame = false
+            @State private var showRevealTitle =  false
+      
     
             @State private var pickedAnimal = ""
             @State private var playerAnswer = ""
@@ -34,11 +36,7 @@ struct ContentView: View {
             @State private var guessCountMessage = "Try guessing using Tiles"
     
           
-    
 
-    
-         
-    
     
               
               //Random Game
@@ -68,9 +66,22 @@ struct ContentView: View {
             
             self.playerAnswer = "Correct"
             self.guessAnimalCount += 1
+            
+            //Read out selection
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                readGameSpeech(word: "Correct answer, well done")
+                
+            }
+            
         } else {
             
             self.playerAnswer = "Incorrect"
+            
+            //Read out selection
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                readGameSpeech(word: "Incorrect answer, click on square to provide clue to correct answer")
+                
+            }
             self.guessAnimalCount += 1
         }
     }
@@ -108,7 +119,7 @@ struct ContentView: View {
                 
                            VStack {
                             
-        
+                            
                                
                                Button(action: {
                                    
@@ -118,15 +129,36 @@ struct ContentView: View {
                                     self.guessAnimalCount = 0
                                     self.gameScore.score = 18
                                 
-                                   
                                    self.newGame = self.randomGame()
+                                
+                                withAnimation {
+                                    self.showRevealTitle.toggle()
+                                }
+                                
+                                withAnimation {
                                    self.launchNewGame.toggle()
-                                  
+                                }
                                    
                                }) {
                                 
                                 VStack {
-                                    Text("CLICK CIRCLE")
+                                    
+                                    if showRevealTitle == false {
+                                      
+                                    Text("REVEAL")
+                                        .foregroundColor(Color.yellow)
+                                        .font(.custom("chalkboard SE", size: 60))
+                                        .transition(.slide)
+                                        .onAppear() {
+                                            playSound(sound: "reveal", type: "mp3")
+                                        }
+                                        Spacer()
+                                        
+                                    }
+                                    
+                                
+                                
+                                    Text("START / CLOSE")
                                         .foregroundColor(Color.green)
                                         .font(.custom("chalkboard SE", size: 25))
                                 
@@ -136,8 +168,9 @@ struct ContentView: View {
                                     .clipShape(Circle())
                                     .overlay(Circle().stroke(Color.white,lineWidth: 3))
                                        .frame(width:200,height: 200)
-                                
-                                    
+                                  
+                                Spacer()
+                                  
                                 
                                 
                                 }
@@ -153,6 +186,7 @@ struct ContentView: View {
                                     Text("Can you guess the animal behid the squares??")
                                     .foregroundColor(Color.yellow)
                                     .font(.custom("chalkboard SE", size: 15))
+                                        .transition(.move(edge: .bottom))
                             
                             HStack {
                                     
