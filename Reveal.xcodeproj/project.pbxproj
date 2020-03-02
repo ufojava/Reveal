@@ -10,7 +10,6 @@
 		0358A4822409DD6A006AE95F /* GameStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0358A4812409DD6A006AE95F /* GameStructure.swift */; };
 		0358A484240AEB25006AE95F /* GameTextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0358A483240AEB25006AE95F /* GameTextToSpeech.swift */; };
 		0358A486240B43F0006AE95F /* reveal.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0358A485240B43F0006AE95F /* reveal.mp3 */; };
-		0358A488240B90DD006AE95F /* GameSelectorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0358A487240B90DD006AE95F /* GameSelectorTest.swift */; };
 		03EF37712402EFFA00B04E6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF37702402EFFA00B04E6A /* AppDelegate.swift */; };
 		03EF37732402EFFA00B04E6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF37722402EFFA00B04E6A /* SceneDelegate.swift */; };
 		03EF37752402EFFA00B04E6A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF37742402EFFA00B04E6A /* ContentView.swift */; };
@@ -33,7 +32,6 @@
 		0358A4812409DD6A006AE95F /* GameStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStructure.swift; sourceTree = "<group>"; };
 		0358A483240AEB25006AE95F /* GameTextToSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTextToSpeech.swift; sourceTree = "<group>"; };
 		0358A485240B43F0006AE95F /* reveal.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = reveal.mp3; sourceTree = "<group>"; };
-		0358A487240B90DD006AE95F /* GameSelectorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectorTest.swift; sourceTree = "<group>"; };
 		03EF376D2402EFFA00B04E6A /* Reveal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reveal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03EF37702402EFFA00B04E6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03EF37722402EFFA00B04E6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,7 +116,6 @@
 			children = (
 				03EF37852403323100B04E6A /* GamesView.swift */,
 				03EF37942408862200B04E6A /* AudioTestFile.swift */,
-				0358A487240B90DD006AE95F /* GameSelectorTest.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -214,7 +211,6 @@
 			files = (
 				03EF37912408771100B04E6A /* AnimalSound.swift in Sources */,
 				03EF37712402EFFA00B04E6A /* AppDelegate.swift in Sources */,
-				0358A488240B90DD006AE95F /* GameSelectorTest.swift in Sources */,
 				03EF37732402EFFA00B04E6A /* SceneDelegate.swift in Sources */,
 				0358A484240AEB25006AE95F /* GameTextToSpeech.swift in Sources */,
 				03EF37862403323100B04E6A /* GamesView.swift in Sources */,
