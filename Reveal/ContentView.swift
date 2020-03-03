@@ -33,10 +33,12 @@ struct ContentView: View {
             
             //Count the number of tries
             @State private var guessAnimalCount = 0
-            @State private var guessCountMessage = "Try guessing using Tiles"
-    
-          
+            @State private var guessCountMessage = "Try guessing using Tiles / Click circle to play again"
+            
+            //Message alert if correct anser has been found
+            @State private var showCorrectMessageAlert = false
 
+    
     
               
               //Random Game
@@ -67,11 +69,19 @@ struct ContentView: View {
             self.playerAnswer = "Correct"
             self.guessAnimalCount += 1
             
+            //To show alert
+            gameScore.gameReset = "reset"
+            self.showCorrectMessageAlert.toggle()
+            
             //Read out selection
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 readGameSpeech(word: "Correct answer, well done")
                 
+                
             }
+            
+    
+            
             
         } else {
             
@@ -79,7 +89,7 @@ struct ContentView: View {
             
             //Read out selection
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                readGameSpeech(word: "Incorrect answer, click on square to provide clue to correct answer")
+                readGameSpeech(word: "Incorrect answer, click on  get number")
                 
             }
             self.guessAnimalCount += 1
@@ -89,9 +99,9 @@ struct ContentView: View {
     //Function to process try count
     func tryCount() {
         
-        if self.guessAnimalCount > 0 && self.gameScore.score == 18 {
+        if self.guessAnimalCount > 0 && self.gameScore.score == 18  {
                       
-              self.playerAnswer = "Maximum Guess Count Reached"
+              self.playerAnswer = "Maximum Guess Count Reached or Correct answer found"
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     
@@ -128,6 +138,9 @@ struct ContentView: View {
                                     self.playerAnswer = ""
                                     self.guessAnimalCount = 0
                                     self.gameScore.score = 18
+                                    self.gameScore.gameReset = ""
+                               
+                                   
                                 
                                    self.newGame = self.randomGame()
                                 
@@ -150,7 +163,10 @@ struct ContentView: View {
                                         .font(.custom("chalkboard SE", size: 60))
                                         .transition(.slide)
                                         .onAppear() {
-                                            playSound(sound: "reveal", type: "mp3")
+                                            
+                                        playSound(sound: "After_School_Jamboree", type: "mp3")
+                                          
+                                                
                                         }
                                         Spacer()
                                         
@@ -183,7 +199,7 @@ struct ContentView: View {
                                 
                                 if launchNewGame {
                                     
-                                    Text("Can you guess the animal behid the squares??")
+                                    Text("Can you guess the animal behind the squares??")
                                     .foregroundColor(Color.yellow)
                                     .font(.custom("chalkboard SE", size: 15))
                                         .transition(.move(edge: .bottom))
@@ -197,11 +213,15 @@ struct ContentView: View {
                                     Button(action: {
                                             
                                        
-                                        
+                                            
                                     }) {
                                         
                                         selectionIcon(image: "cow2", legend: "Cow")
                                             .onTapGesture {
+                                                
+                                            if self.gameScore.gameReset == "reset" {
+                                               self.showCorrectMessageAlert.toggle()
+                                           }
                                                 
                                                 
                                                 
@@ -215,10 +235,15 @@ struct ContentView: View {
                                                 
                                                 self.processSelection(inSelection: "Cow")
                                                 }
+                                                
+                                                
+                                                
+                                        }.alert(isPresented: $showCorrectMessageAlert) {
+                                            
+                                            Alert(title: Text("Game Alert"), message: Text("Click Circle to begin new game!! \(gameScore.score) Points"), dismissButton: .default(Text("Got it!!")))
                                         }
                                             
                                         
-                                            
                                         
                                     }//End Button
                                 
@@ -228,13 +253,17 @@ struct ContentView: View {
                                     //Answer Horse
                                     Button(action: {
                                         
-                                    
+                                        
                                         
                                     }) {
                                         
                                         
                                         selectionIcon(image: "horse", legend: "Horse")
                                         .onTapGesture {
+                                            
+                                            if self.gameScore.gameReset == "reset" {
+                                                self.showCorrectMessageAlert.toggle()
+                                            }
                                             
                                             if self.guessAnimalCount > 0 && self.gameScore.score == 18 {
                                             
@@ -247,6 +276,8 @@ struct ContentView: View {
                                             self.processSelection(inSelection: "Horse")
                                                 
                                             }
+                                        }.alert(isPresented: $showCorrectMessageAlert) {
+                                            Alert(title: Text("Game Alert"), message: Text("Click on circle to begin new game!! \(gameScore.score) Points"), dismissButton: .default(Text("Got it!!")))
                                         }
                                         
                                         
@@ -257,11 +288,17 @@ struct ContentView: View {
                                     //Answer Pig
                                     Button(action: {
                                         
+                                        
+                                        
                                        
                                     }) {
                                         
                                         selectionIcon(image: "pig", legend: "Pig")
                                         .onTapGesture {
+                                            
+                                            if self.gameScore.gameReset == "reset" {
+                                                self.showCorrectMessageAlert.toggle()
+                                            }
                                             
                                             if self.guessAnimalCount > 0 && self.gameScore.score == 18 {
                                                 
@@ -273,6 +310,9 @@ struct ContentView: View {
                                             self.processSelection(inSelection: "Pig")
                                                 
                                             }
+                                            
+                                        }.alert(isPresented: $showCorrectMessageAlert) {
+                                            Alert(title: Text("Game Alert"), message: Text("Click on circle to begin new game!! \(gameScore.score) Points"), dismissButton: .default(Text("Got it!!")))
                                         }
                                         
                                         
@@ -283,12 +323,18 @@ struct ContentView: View {
                                     //Answer LLama
                                     Button(action: {
                                         
+                                        
+                                        
                                        
                                         
                                     }) {
                                         
                                         selectionIcon(image: "llama", legend: "Llama")
                                         .onTapGesture {
+                                            
+                                            if self.gameScore.gameReset == "reset" {
+                                                self.showCorrectMessageAlert.toggle()
+                                            }
                                             
                                             if self.guessAnimalCount > 0 && self.gameScore.score == 18 {
                                                 
@@ -300,6 +346,9 @@ struct ContentView: View {
                                             playSound(sound: "llama", type: "mp3")
                                             self.processSelection(inSelection: "Llama")
                                             }
+                                            
+                                        }.alert(isPresented: $showCorrectMessageAlert) {
+                                            Alert(title: Text("Game Alert"), message: Text("Click on circle to begin new game!!  \(gameScore.score) Points"), dismissButton: .default(Text("Got it!!")))
                                         }
                                         
                                     }
@@ -307,12 +356,16 @@ struct ContentView: View {
                                     //Answer Rabbit
                                     Button(action: {
                                         
-                                   
+                                       
                                       
                                     }) {
                                         
                                         selectionIcon(image: "rabbit", legend: "Rabbit")
                                         .onTapGesture {
+                                            
+                                            if self.gameScore.gameReset == "reset" {
+                                               self.showCorrectMessageAlert.toggle()
+                                           }
                                             
                                             if self.guessAnimalCount > 0 && self.gameScore.score == 18{
                                                 
@@ -323,8 +376,11 @@ struct ContentView: View {
                                             } else {
                                             playSound(sound: "rabbit", type: "mp3")
                                             self.processSelection(inSelection: "Rabbit")
+                                                
                                         }
                                         
+                                        }.alert(isPresented: $showCorrectMessageAlert) {
+                                            Alert(title: Text("Game Alert"), message: Text("Click on circle to begin new game!!  \(gameScore.score) Points"), dismissButton: .default(Text("Got it!!")))
                                         }
                                         
                                     }//end of Button
@@ -333,11 +389,16 @@ struct ContentView: View {
                                     //Answer Sheep
                                     Button(action: {
                                         
+                                        
                                        
                                     }) {
                                         
                                         selectionIcon(image: "sheep", legend: "Sheep")
                                         .onTapGesture {
+                                            
+                                            if self.gameScore.gameReset == "reset" {
+                                                self.showCorrectMessageAlert.toggle()
+                                            }
                                             
                                             if self.guessAnimalCount > 0 && self.gameScore.score == 18 {
                                                 
@@ -348,7 +409,11 @@ struct ContentView: View {
                                             
                                             playSound(sound: "sheep", type: "mp3")
                                             self.processSelection(inSelection: "Sheep")
+                                                
                                             }
+                                            
+                                        }.alert(isPresented: $showCorrectMessageAlert) {
+                                            Alert(title: Text("Game Alert"), message: Text("Click on circle to begin new game!!  \(gameScore.score) Points"), dismissButton: .default(Text("Got it!!")))
                                         }
                                         
                                         

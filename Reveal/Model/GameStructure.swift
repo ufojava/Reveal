@@ -11,5 +11,6 @@ import Foundation
 class GameScore: ObservableObject {
     
     @Published var score = 18
+    @Published var gameReset = ""
     
 }

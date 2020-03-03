@@ -229,7 +229,7 @@ struct Rabbit: View {
              }) {
                  
                  
-                 Text("Get Square Number")
+                 Text("Get Number")
                     .foregroundColor(Color.green)
                     .font(.custom("chalkboard SE", size: 15))
                  
@@ -278,7 +278,7 @@ struct Rabbit: View {
                         
                             } else {
                                 
-                                readGameSpeech(word: "Get square number  or click the correct square")
+                                readGameSpeech(word: "Get Number  or click the correct square")
                             }
                         })
                   
@@ -312,7 +312,7 @@ struct Rabbit: View {
                                 
                             } else {
                                 
-                                readGameSpeech(word: "Get square number  or click the correct square")
+                                readGameSpeech(word: "Get Number  or click the correct square")
                             }
                     
                     
@@ -348,7 +348,7 @@ struct Rabbit: View {
                                }
                             } else {
                                 
-                                readGameSpeech(word: "Get square number  or click the correct square")
+                                readGameSpeech(word: "Get Number  or click the correct square")
                             }
                     
                     })
@@ -394,7 +394,7 @@ struct Rabbit: View {
                                 }
                             } else {
                                 
-                                readGameSpeech(word: "Get square number  or click the correct square")
+                                readGameSpeech(word: "Get Number  or click the correct square")
                             }
                             
                     })
@@ -430,7 +430,7 @@ struct Rabbit: View {
                                 
                             } else {
                                 
-                                readGameSpeech(word: "Get square number  or click the correct square")
+                                readGameSpeech(word: "Get Number  or click the correct square")
                             }
                             
                     })
@@ -467,7 +467,7 @@ struct Rabbit: View {
                                 
                             } else {
                                 
-                                readGameSpeech(word: "Get square number  or click the correct square")
+                                readGameSpeech(word: "Get Number  or click the correct square")
                             }
                             
                     })
@@ -507,7 +507,7 @@ struct Rabbit: View {
                            
                         } else {
                             
-                            readGameSpeech(word: "Get square number  or click the correct square")
+                            readGameSpeech(word: "Get Number  or click the correct square")
                         }
                    })
                    Spacer().frame(width: 0)
@@ -542,7 +542,7 @@ struct Rabbit: View {
                                    
                             } else {
                                 
-                                readGameSpeech(word: "Get square number  or click the correct square")
+                                readGameSpeech(word: "Get Number  or click the correct square")
                             }
                     })
                    Spacer().frame(width: 0)
@@ -577,7 +577,7 @@ struct Rabbit: View {
                             }
                                    
                             } else {
-                                readGameSpeech(word: "Get square number  or click the correct square")
+                                readGameSpeech(word: "Get Number  or click the correct square")
                             }
                     })
                }
@@ -675,6 +675,37 @@ struct Sheep: View {
            
            
        }
+    
+    
+    //All blank squares
+    @State private var allBankSquares = [1,2,3,4,5,6,7,8,9]
+    
+    //Array to hold temp data
+    @State private var tempSquareArray = [Int]()
+    @State private var updatedOrigArray = [Int]()
+    
+    @State private var revealTile = 0
+    
+    
+    //Function to process random numbers
+    func processRandomNumber() {
+        
+        //Get random number
+        let localOriginalArray = allBankSquares.randomElement()
+        
+        //Assign Value to Reveal variable
+        self.revealTile = localOriginalArray!
+        
+        //Append to temporary
+        tempSquareArray.append(localOriginalArray!)
+        
+        //Remove random number from original array set
+        allBankSquares = allBankSquares.filter {$0 != localOriginalArray}
+        
+        updatedOrigArray = allBankSquares
+        
+    
+    }
        
     
 
@@ -686,7 +717,25 @@ struct Sheep: View {
             Spacer().frame(height: 10)
             
            
-            Spacer().frame(height: 20)
+            HStack {
+            
+            Button(action: {
+                             
+                 self.processRandomNumber()
+                 
+             }) {
+                 
+                 
+                 Text("Get Number")
+                    .foregroundColor(Color.green)
+                    .font(.custom("chalkboard SE", size: 15))
+                 
+                   }
+                
+                Text("Click on Square: \(self.revealTile)")
+                    .foregroundColor(Color.yellow)
+                    .font(.custom("chalkboard SE", size: 15))
+            }
         
 
          HStack {//Row One
@@ -694,6 +743,8 @@ struct Sheep: View {
                    FlipTile(tileImage: sheepBackTileOneToggle, blankImage: sheepBackTileOne, animalImage: sheepTileOne)
                    
                        .gesture(TapGesture().onEnded() {
+                        
+                        if self.revealTile == 1 && self.revealTile != 0 {
                            
                            self.sheepBackTileOneToggle.toggle()
                         playSound(sound: "Swoosh", type: "mp3")
@@ -716,6 +767,11 @@ struct Sheep: View {
                             readGameSpeech(word: self.pointConverter)
                             }
                           }
+                            
+                        } else {
+                            
+                            readGameSpeech(word: "Get Number  or click the correct square")
+                        }
                            
                            
                        })
@@ -724,6 +780,8 @@ struct Sheep: View {
                    FlipTile(tileImage: sheepBackTileTwoToggle, blankImage: sheepBackTileTwo, animalImage: sheepTileTwo)
                    
                        .gesture(TapGesture().onEnded() {
+                        
+                        if self.revealTile == 2 && self.revealTile != 0 {
                            
                            self.sheepBackTileTwoToggle.toggle()
                         playSound(sound: "Swoosh", type: "mp3")
@@ -746,6 +804,11 @@ struct Sheep: View {
                             readGameSpeech(word: self.pointConverter)
                             }
                           }
+                            
+                        } else {
+                            
+                            readGameSpeech(word: "Get Number  or click the correct square")
+                        }
                    
                    
                    })
@@ -756,6 +819,8 @@ struct Sheep: View {
                    FlipTile(tileImage: sheepBackTileThreeToggle, blankImage: sheepBackTileThree, animalImage: sheepTileThree)
                    
                        .gesture(TapGesture().onEnded() {
+                        
+                        if self.revealTile == 3 && self.revealTile != 0 {
                            
                            self.sheepBackTileThreeToggle.toggle()
                         playSound(sound: "Swoosh", type: "mp3")
@@ -778,6 +843,11 @@ struct Sheep: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                            
+                        } else {
+                            
+                            readGameSpeech(word: "Get Number  or click the correct square")
+                        }
                    
                    
                    })
@@ -797,6 +867,8 @@ struct Sheep: View {
                    FlipTile(tileImage: sheepBackTileFourToggle, blankImage: sheepBackTileFour, animalImage: sheepTileFour)
                    
                        .gesture(TapGesture().onEnded() {
+                        
+                        if self.revealTile == 4 && self.revealTile != 0 {
                            
                            self.sheepBackTileFourToggle.toggle()
                         playSound(sound: "Swoosh", type: "mp3")
@@ -819,6 +891,11 @@ struct Sheep: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                            
+                        } else {
+                            
+                            readGameSpeech(word: "Get Number  or click the correct square")
+                        }
                            
                            
                    })
@@ -827,6 +904,8 @@ struct Sheep: View {
                    FlipTile(tileImage: sheepBackTileFiveToggle, blankImage: sheepBackTileFive, animalImage: sheepTileFive)
                    
                        .gesture(TapGesture().onEnded() {
+                        
+                        if self.revealTile == 5 && self.revealTile != 0 {
                            
                            self.sheepBackTileFiveToggle.toggle()
                         playSound(sound: "Swoosh", type: "mp3")
@@ -849,12 +928,18 @@ struct Sheep: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                            
+                        } else {
+                            readGameSpeech(word: "Get Number  or click the correct square")
+                        }
                            
                    })
                    Spacer().frame(width: 0)
                    FlipTile(tileImage: sheepBackTileSixToggle, blankImage: sheepBackTileSix, animalImage: sheepTileSix)
                    
                        .gesture(TapGesture().onEnded() {
+                        
+                        if self.revealTile == 6 && self.revealTile != 0 {
                            
                            self.sheepBackTileSixToggle.toggle()
                         playSound(sound: "Swoosh", type: "mp3")
@@ -877,6 +962,11 @@ struct Sheep: View {
                             readGameSpeech(word: self.pointConverter)
                             }
                           }
+                            
+                        } else {
+                            
+                            readGameSpeech(word: "Get Number  or click the correct square")
+                        }
                            
                    })
                }
@@ -888,6 +978,8 @@ struct Sheep: View {
                     FlipTile(tileImage: sheepBackTileSevenToggle, blankImage: sheepBackTileSeven, animalImage: sheepTileSeven)
                                       
                       .gesture(TapGesture().onEnded() {
+                        
+                        if self.revealTile == 7 && self.revealTile != 0 {
                           
                           self.sheepBackTileSevenToggle.toggle()
                         playSound(sound: "Swoosh", type: "mp3")
@@ -910,6 +1002,11 @@ struct Sheep: View {
                             readGameSpeech(word: self.pointConverter)
                             }
                           }
+                            
+                        } else {
+                            
+                            readGameSpeech(word: "Get Number  or click the correct square")
+                        }
                           
                   })
                   Spacer().frame(width: 0)
@@ -917,6 +1014,8 @@ struct Sheep: View {
                     FlipTile(tileImage: sheepBackTileEightToggle, blankImage: sheepBackTileEight, animalImage: sheepTileEight)
                                       
                        .gesture(TapGesture().onEnded() {
+                        
+                        if self.revealTile == 8 && self.revealTile != 0 {
                           
                           self.sheepBackTileEightToggle.toggle()
                         playSound(sound: "Swoosh", type: "mp3")
@@ -939,6 +1038,11 @@ struct Sheep: View {
                             readGameSpeech(word: self.pointConverter)
                             }
                           }
+                            
+                        } else {
+                            
+                            readGameSpeech(word: "Get Number  or click the correct square")
+                        }
                                   
                    })
                   Spacer().frame(width: 0)
@@ -946,6 +1050,8 @@ struct Sheep: View {
                    FlipTile(tileImage: sheepBackTileNineToggle, blankImage: sheepBackTileNine, animalImage: sheepTileNine)
                                       
                        .gesture(TapGesture().onEnded() {
+                        
+                        if self.revealTile == 9 && self.revealTile != 0 {
                           
                           self.sheepBackTileNineToggle.toggle()
                         playSound(sound: "Swoosh", type: "mp3")
@@ -968,6 +1074,11 @@ struct Sheep: View {
                             readGameSpeech(word: self.pointConverter)
                             }
                          }
+                            
+                        } else {
+                            
+                            readGameSpeech(word: "Get Number  or click the correct square")
+                        }
                                   
                    })
               }
@@ -1061,12 +1172,64 @@ struct Cow: View {
              
          }
     
+    
+    
+    //All blank squares
+    @State private var allBankSquares = [1,2,3,4,5,6,7,8,9]
+    
+    //Array to hold temp data
+    @State private var tempSquareArray = [Int]()
+    @State private var updatedOrigArray = [Int]()
+    
+    @State private var revealTile = 0
+    
+    
+    //Function to process random numbers
+    func processRandomNumber() {
+        
+        //Get random number
+        let localOriginalArray = allBankSquares.randomElement()
+        
+        //Assign Value to Reveal variable
+        self.revealTile = localOriginalArray!
+        
+        //Append to temporary
+        tempSquareArray.append(localOriginalArray!)
+        
+        //Remove random number from original array set
+        allBankSquares = allBankSquares.filter {$0 != localOriginalArray}
+        
+        updatedOrigArray = allBankSquares
+        
+    
+    }
+    
     var body: some View {
         
        VStack {
         
   
-        Spacer().frame(height: 20)
+        Spacer().frame(height: 10)
+        
+                HStack {
+                
+                Button(action: {
+                                 
+                     self.processRandomNumber()
+                     
+                 }) {
+                     
+                     
+                     Text("Get Number")
+                        .foregroundColor(Color.green)
+                        .font(.custom("chalkboard SE", size: 15))
+                     
+                       }
+                    
+                    Text("Click on Square: \(self.revealTile)")
+                        .foregroundColor(Color.yellow)
+                        .font(.custom("chalkboard SE", size: 15))
+                }
             
 
              HStack {//Row One
@@ -1074,6 +1237,8 @@ struct Cow: View {
                        FlipTile(tileImage: cowBackTileOneToggle, blankImage: cowBackTileOne, animalImage: cowTileOne)
                        
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 1 && self.revealTile != 0 {
                                
                                self.cowBackTileOneToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -1097,6 +1262,10 @@ struct Cow: View {
                                 }
                               }
                                
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                                
                            })
                        Spacer().frame(width: 0)
@@ -1104,6 +1273,8 @@ struct Cow: View {
                        FlipTile(tileImage: cowBackTileTwoToggle, blankImage: cowBackTileTwo, animalImage: cowTileTwo)
                        
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 2 && self.revealTile != 0 {
                                
                                self.cowBackTileTwoToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -1126,6 +1297,11 @@ struct Cow: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                                
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                        
                        
                        })
@@ -1134,6 +1310,8 @@ struct Cow: View {
                        FlipTile(tileImage: cowBackTileThreeToggle, blankImage: cowBackTileThree, animalImage: cowTileThree)
                        
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 3 && self.revealTile != 0 {
                                
                                self.cowBackTileThreeToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -1157,6 +1335,10 @@ struct Cow: View {
                                 }
                               }
                        
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                        
                        })
                        
@@ -1175,6 +1357,8 @@ struct Cow: View {
                        FlipTile(tileImage: cowBackTileFourToggle, blankImage: cowBackTileFour, animalImage: cowTileFour)
                        
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 4 && self.revealTile != 0 {
                                
                                self.cowBackTileFourToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -1198,6 +1382,10 @@ struct Cow: View {
                                 }
                               }
                                
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                                
                        })
                        Spacer().frame(width: 0)
@@ -1205,6 +1393,8 @@ struct Cow: View {
                        FlipTile(tileImage: cowBackTileFiveToggle, blankImage: cowBackTileFive, animalImage: cowTileFive)
                        
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 5 && self.revealTile != 0 {
                                
                                self.cowBackTileFiveToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -1227,12 +1417,19 @@ struct Cow: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                                
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                                
                        })
                        Spacer().frame(width: 0)
                        FlipTile(tileImage: cowBackTileSixToggle, blankImage: cowBackTileSix, animalImage: cowTileSix)
                        
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 6 && self.revealTile != 0 {
                                
                                self.cowBackTileSixToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -1255,6 +1452,10 @@ struct Cow: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                              }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                                
                        })
                    }
@@ -1266,6 +1467,8 @@ struct Cow: View {
                         FlipTile(tileImage: cowBackTileSevenToggle, blankImage: cowBackTileSeven, animalImage: cowTileSeven)
                                           
                           .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 7 && self.revealTile != 0 {
                               
                               self.cowBackTileSevenToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -1288,6 +1491,10 @@ struct Cow: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                               
                       })
                       Spacer().frame(width: 0)
@@ -1295,6 +1502,8 @@ struct Cow: View {
                         FlipTile(tileImage: cowBackTileEightToggle, blankImage: cowBackTileEight, animalImage: cowTileEight)
                                           
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 8 && self.revealTile != 0 {
                               
                               self.cowBackTileEightToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -1316,6 +1525,10 @@ struct Cow: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                                       
                        })
                       Spacer().frame(width: 0)
@@ -1323,6 +1536,8 @@ struct Cow: View {
                        FlipTile(tileImage: cowBackTileNineToggle, blankImage: cowBackTileNine, animalImage: cowTileNine)
                                           
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 9 && self.revealTile != 0 {
                               
                               self.cowBackTileNineToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -1345,6 +1560,10 @@ struct Cow: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                                       
                        })
                   }
@@ -1440,6 +1659,36 @@ struct Horse: View {
         
         
     }
+    
+    //All blank squares
+    @State private var allBankSquares = [1,2,3,4,5,6,7,8,9]
+    
+    //Array to hold temp data
+    @State private var tempSquareArray = [Int]()
+    @State private var updatedOrigArray = [Int]()
+    
+    @State private var revealTile = 0
+    
+    
+    //Function to process random numbers
+    func processRandomNumber() {
+        
+        //Get random number
+        let localOriginalArray = allBankSquares.randomElement()
+        
+        //Assign Value to Reveal variable
+        self.revealTile = localOriginalArray!
+        
+        //Append to temporary
+        tempSquareArray.append(localOriginalArray!)
+        
+        //Remove random number from original array set
+        allBankSquares = allBankSquares.filter {$0 != localOriginalArray}
+        
+        updatedOrigArray = allBankSquares
+        
+    
+    }
    
     
     var body: some View {
@@ -1449,7 +1698,25 @@ struct Horse: View {
             
             Spacer().frame(height: 10)
             
+           HStack {
            
+                   Button(action: {
+                                    
+                        self.processRandomNumber()
+                        
+                    }) {
+                        
+                        
+                        Text("Get Number")
+                           .foregroundColor(Color.green)
+                           .font(.custom("chalkboard SE", size: 15))
+                        
+                          }
+                       
+                       Text("Click on Square: \(self.revealTile)")
+                           .foregroundColor(Color.yellow)
+                           .font(.custom("chalkboard SE", size: 15))
+                   }
             
 
              HStack {//Row One
@@ -1457,6 +1724,8 @@ struct Horse: View {
                        FlipTile(tileImage: horseBackTileOneToggle, blankImage: horseBackTileOne, animalImage: horseTileOne)
                        
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 1 && self.revealTile != 0 {
                                
                                self.horseBackTileOneToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -1480,6 +1749,11 @@ struct Horse: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                              }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                                
+                            }
                                
                                
                            })
@@ -1488,6 +1762,8 @@ struct Horse: View {
                        FlipTile(tileImage: horseBackTileTwoToggle, blankImage: horseBackTileTwo, animalImage: horseTileTwo)
                        
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 2 && self.revealTile != 0 {
                                
                                self.horseBackTileTwoToggle.toggle()
                                 playSound(sound: "Swoosh", type: "mp3")
@@ -1510,6 +1786,10 @@ struct Horse: View {
                                     readGameSpeech(word: self.pointConverter)
                                     }
                                   }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                        
                        
                        })
@@ -1518,6 +1798,8 @@ struct Horse: View {
                        FlipTile(tileImage: horseBackTileThreeToggle, blankImage: horseBackTileThree, animalImage: horseTileThree)
                        
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 3 && self.revealTile != 0 {
                                
                                self.horseBackTileThreeToggle.toggle()
                                playSound(sound: "Swoosh", type: "mp3")
@@ -1540,6 +1822,11 @@ struct Horse: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                                
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                        
                        
                        })
@@ -1559,6 +1846,8 @@ struct Horse: View {
                        FlipTile(tileImage: horseBackTileFourToggle, blankImage: horseBackTileFour, animalImage: horseTileFour)
                        
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 4 && self.revealTile != 0 {
                                
                                self.horseBackTileFourToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -1581,7 +1870,10 @@ struct Horse: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                              }
-                               
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                                
                        })
                        Spacer().frame(width: 0)
@@ -1589,6 +1881,8 @@ struct Horse: View {
                        FlipTile(tileImage: horseBackTileFiveToggle, blankImage: horseBackTileFive, animalImage: horseTileFive)
                        
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 5 && self.revealTile != 0 {
                                
                                self.horseBackTileFiveToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -1611,12 +1905,18 @@ struct Horse: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                                
                        })
                        Spacer().frame(width: 0)
                        FlipTile(tileImage: horseBackTileSixToggle, blankImage: horseBackTileSix, animalImage: horseTileSix)
                        
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 6 && self.revealTile != 0 {
                                
                                self.horseBackTileSixToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -1639,6 +1939,10 @@ struct Horse: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                                
                        })
                    }
@@ -1650,6 +1954,8 @@ struct Horse: View {
                         FlipTile(tileImage: horseBackTileSevenToggle, blankImage: horseBackTileSeven, animalImage: horseTileSeven)
                                           
                           .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 7 && self.revealTile != 0 {
                               
                               self.horseBackTileSevenToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -1672,6 +1978,10 @@ struct Horse: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                               
                       })
                       Spacer().frame(width: 0)
@@ -1679,6 +1989,8 @@ struct Horse: View {
                         FlipTile(tileImage: horseBackTileEightToggle, blankImage: horseBackTileEight, animalImage: horseTileEight)
                                           
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 8 && self.revealTile != 0 {
                               
                               self.horseBackTileEightToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -1701,6 +2013,10 @@ struct Horse: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                                       
                        })
                       Spacer().frame(width: 0)
@@ -1708,6 +2024,8 @@ struct Horse: View {
                        FlipTile(tileImage: horseBackTileNineToggle, blankImage: horseBackTileNine, animalImage: horseTileNine)
                                           
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 9 && self.revealTile != 0 {
                               
                               self.horseBackTileNineToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -1730,6 +2048,10 @@ struct Horse: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                        })
                   }
                
@@ -1821,6 +2143,36 @@ struct Pig: View {
            
            
        }
+    
+    //All blank squares
+    @State private var allBankSquares = [1,2,3,4,5,6,7,8,9]
+    
+    //Array to hold temp data
+    @State private var tempSquareArray = [Int]()
+    @State private var updatedOrigArray = [Int]()
+    
+    @State private var revealTile = 0
+    
+    
+    //Function to process random numbers
+    func processRandomNumber() {
+        
+        //Get random number
+        let localOriginalArray = allBankSquares.randomElement()
+        
+        //Assign Value to Reveal variable
+        self.revealTile = localOriginalArray!
+        
+        //Append to temporary
+        tempSquareArray.append(localOriginalArray!)
+        
+        //Remove random number from original array set
+        allBankSquares = allBankSquares.filter {$0 != localOriginalArray}
+        
+        updatedOrigArray = allBankSquares
+        
+    
+    }
    
     
     var body: some View {
@@ -1831,13 +2183,33 @@ struct Pig: View {
         Spacer().frame(height: 10)
         
        
+            HStack {
             
+                    Button(action: {
+                                     
+                         self.processRandomNumber()
+                         
+                     }) {
+                         
+                         
+                         Text("Get Number")
+                            .foregroundColor(Color.green)
+                            .font(.custom("chalkboard SE", size: 15))
+                         
+                           }
+                        
+                        Text("Click on Square: \(self.revealTile)")
+                            .foregroundColor(Color.yellow)
+                            .font(.custom("chalkboard SE", size: 15))
+                    }
 
              HStack {//Row One
                                
                        FlipTile(tileImage: pigBackTileOneToggle, blankImage: pigBackTileOne, animalImage: pigTileOne)
                        
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 1 && self.revealTile != 0 {
                                
                                self.pigBackTileOneToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -1860,6 +2232,11 @@ struct Pig: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                                
+                            }
                                
                                
                            })
@@ -1868,6 +2245,8 @@ struct Pig: View {
                        FlipTile(tileImage: pigBackTileTwoToggle, blankImage: pigBackTileTwo, animalImage: pigTileTwo)
                        
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 2 && self.revealTile != 0 {
                                
                                self.pigBackTileTwoToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -1890,6 +2269,10 @@ struct Pig: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                        
                        
                        })
@@ -1898,6 +2281,8 @@ struct Pig: View {
                        FlipTile(tileImage: pigBackTileThreeToggle, blankImage: pigBackTileThree, animalImage: pigTileThree)
                        
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 3 && self.revealTile != 0 {
                                
                                self.pigBackTileThreeToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -1920,6 +2305,10 @@ struct Pig: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                        
                        })
                        
@@ -1938,6 +2327,8 @@ struct Pig: View {
                        FlipTile(tileImage: pigBackTileFourToggle, blankImage: pigBackTileFour, animalImage: pigTileFour)
                        
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 4 && self.revealTile != 0 {
                                
                                self.pigBackTileFourToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -1960,6 +2351,10 @@ struct Pig: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                                
                                
                        })
@@ -1968,6 +2363,8 @@ struct Pig: View {
                        FlipTile(tileImage: pigBackTileFiveToggle, blankImage: pigBackTileFive, animalImage: pigTileFive)
                        
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 5 && self.revealTile != 0 {
                                
                                self.pigBackTileFiveToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -1990,12 +2387,18 @@ struct Pig: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                                
                        })
                        Spacer().frame(width: 0)
                        FlipTile(tileImage: pigBackTileSixToggle, blankImage: pigBackTileSix, animalImage: pigTileSix)
                        
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 6 && self.revealTile != 0 {
                                
                                self.pigBackTileSixToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -2018,6 +2421,10 @@ struct Pig: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                                
                        })
                    }
@@ -2029,6 +2436,8 @@ struct Pig: View {
                         FlipTile(tileImage: pigBackTileSevenToggle, blankImage: pigBackTileSeven, animalImage: pigTileSeven)
                                           
                           .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 7 && self.revealTile != 0 {
                               
                               self.pigBackTileSevenToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -2052,12 +2461,18 @@ struct Pig: View {
                                 }
                              }
                               
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                       })
                       Spacer().frame(width: 0)
                        
                         FlipTile(tileImage: pigBackTileEightToggle, blankImage: pigBackTileEight, animalImage: pigTileEight)
                                           
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 8 && self.revealTile != 0 {
                               
                               self.pigBackTileEightToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -2080,6 +2495,10 @@ struct Pig: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                                       
                        })
                       Spacer().frame(width: 0)
@@ -2087,6 +2506,8 @@ struct Pig: View {
                        FlipTile(tileImage: pigBackTileNineToggle, blankImage: pigBackTileNine, animalImage: pigTileNine)
                                           
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 9 && self.revealTile != 0 {
                               
                               self.pigBackTileNineToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -2109,6 +2530,10 @@ struct Pig: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                                       
                        })
                   }
@@ -2202,6 +2627,36 @@ struct Lama: View {
        
    }
     
+    //All blank squares
+    @State private var allBankSquares = [1,2,3,4,5,6,7,8,9]
+    
+    //Array to hold temp data
+    @State private var tempSquareArray = [Int]()
+    @State private var updatedOrigArray = [Int]()
+    
+    @State private var revealTile = 0
+    
+    
+    //Function to process random numbers
+    func processRandomNumber() {
+        
+        //Get random number
+        let localOriginalArray = allBankSquares.randomElement()
+        
+        //Assign Value to Reveal variable
+        self.revealTile = localOriginalArray!
+        
+        //Append to temporary
+        tempSquareArray.append(localOriginalArray!)
+        
+        //Remove random number from original array set
+        allBankSquares = allBankSquares.filter {$0 != localOriginalArray}
+        
+        updatedOrigArray = allBankSquares
+        
+    
+    }
+    
     
     
     var body: some View {
@@ -2209,6 +2664,27 @@ struct Lama: View {
         VStack {
             
             Spacer().frame(height: 10)
+            
+            
+            HStack {
+            
+                Button(action: {
+                                 
+                     self.processRandomNumber()
+                     
+                 }) {
+                     
+                     
+                     Text("Get Number")
+                        .foregroundColor(Color.green)
+                        .font(.custom("chalkboard SE", size: 15))
+                     
+                       }
+                    
+                    Text("Click on Square: \(self.revealTile)")
+                        .foregroundColor(Color.yellow)
+                        .font(.custom("chalkboard SE", size: 15))
+            }
            
 
              HStack {//Row One
@@ -2216,6 +2692,8 @@ struct Lama: View {
                        FlipTile(tileImage: lamaBackTileOneToggle, blankImage: lamaBackTileOne, animalImage: lamaTileOne)
                        
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 1 && self.revealTile != 0 {
                                
                                self.lamaBackTileOneToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -2239,6 +2717,10 @@ struct Lama: View {
                                 }
                              }
                                
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                                
                            })
                        Spacer().frame(width: 0)
@@ -2246,6 +2728,8 @@ struct Lama: View {
                        FlipTile(tileImage: lamaBackTileTwoToggle, blankImage: lamaBackTileTwo, animalImage: lamaTileTwo)
                        
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 2 && self.revealTile != 0 {
                                
                                self.lamaBackTileTwoToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -2268,6 +2752,10 @@ struct Lama: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                        
                        
                        })
@@ -2276,6 +2764,8 @@ struct Lama: View {
                        FlipTile(tileImage: lamaBackTileThreeToggle, blankImage: lamaBackTileThree, animalImage: lamaTileThree)
                        
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 3 && self.revealTile != 0 {
                                
                                self.lamaBackTileThreeToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -2298,6 +2788,10 @@ struct Lama: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                        
                        
                        })
@@ -2317,6 +2811,8 @@ struct Lama: View {
                        FlipTile(tileImage: lamaBackTileFourToggle, blankImage: lamaBackTileFour, animalImage: lamaTileFour)
                        
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 4 && self.revealTile != 0 {
                                
                                self.lamaBackTileFourToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -2339,6 +2835,10 @@ struct Lama: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                                
                                
                        })
@@ -2347,6 +2847,8 @@ struct Lama: View {
                        FlipTile(tileImage: lamaBackTileFiveToggle, blankImage: lamaBackTileFive, animalImage: lamaTileFive)
                        
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 5 && self.revealTile != 0 {
                                
                                self.lamaBackTileFiveToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -2369,12 +2871,17 @@ struct Lama: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
-                               
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                        })
                        Spacer().frame(width: 0)
                        FlipTile(tileImage: lamaBackTileSixToggle, blankImage: lamaBackTileSix, animalImage: lamaTileSix)
                        
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 6 && self.revealTile != 0 {
                                
                                self.lamaBackTileSixToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -2397,6 +2904,10 @@ struct Lama: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                              }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                                
                        })
                    }
@@ -2408,6 +2919,8 @@ struct Lama: View {
                     FlipTile(tileImage: lamaBackTileSevenToggle, blankImage: lamaBackTileSeven, animalImage: lamaTileSeven)
                                           
                           .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 7 && self.revealTile != 0 {
                               
                               self.lamaBackTileSevenToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -2430,13 +2943,18 @@ struct Lama: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                              }
-                              
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                       })
                       Spacer().frame(width: 0)
                        
                     FlipTile(tileImage: lamaBackTileEightToggle, blankImage: lamaBackTileEight, animalImage: lamaTileEight)
                                           
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 8 && self.revealTile != 0 {
                               
                               self.lamaBackTileEightToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -2459,6 +2977,10 @@ struct Lama: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                              }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                                       
                        })
                       Spacer().frame(width: 0)
@@ -2466,6 +2988,8 @@ struct Lama: View {
                     FlipTile(tileImage: lamaBackTileNineToggle, blankImage: lamaBackTileNine, animalImage: lamaTileNine)
                                           
                            .gesture(TapGesture().onEnded() {
+                            
+                            if self.revealTile == 9 && self.revealTile != 0 {
                               
                               self.lamaBackTileNineToggle.toggle()
                             playSound(sound: "Swoosh", type: "mp3")
@@ -2488,6 +3012,10 @@ struct Lama: View {
                                 readGameSpeech(word: self.pointConverter)
                                 }
                               }
+                            } else {
+                                
+                                readGameSpeech(word: "Get Number  or click the correct square")
+                            }
                                       
                        })
                   }
