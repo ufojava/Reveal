@@ -217,7 +217,7 @@ struct Rabbit: View {
         
         VStack {
             
-            Spacer().frame(height: 10)
+            Spacer().frame(height: 5)
             
             
             HStack {
@@ -238,6 +238,8 @@ struct Rabbit: View {
                 Text("Click on Square: \(self.revealTile)")
                     .foregroundColor(Color.yellow)
                     .font(.custom("chalkboard SE", size: 15))
+                
+                
             }
         
                 HStack {//Row One
@@ -581,9 +583,10 @@ struct Rabbit: View {
                             }
                     })
                }
-                    
-            HStack {
+               
             
+            HStack {
+
                 Text("Points: \(self.gameScore.score)")
                  
                  
@@ -714,7 +717,7 @@ struct Sheep: View {
         
         VStack {
             
-            Spacer().frame(height: 10)
+            Spacer().frame(height: 5)
             
            
             HStack {
@@ -1209,7 +1212,7 @@ struct Cow: View {
        VStack {
         
   
-        Spacer().frame(height: 10)
+        Spacer().frame(height: 5)
         
                 HStack {
                 
@@ -1696,7 +1699,7 @@ struct Horse: View {
         
         VStack {
             
-            Spacer().frame(height: 10)
+            Spacer().frame(height: 5)
             
            HStack {
            
@@ -2180,7 +2183,7 @@ struct Pig: View {
         
        VStack {
         
-        Spacer().frame(height: 10)
+        Spacer().frame(height: 5)
         
        
             HStack {
@@ -3082,7 +3085,7 @@ struct selectionIcon: View {
             Image(image).renderingMode(.original)
                 .resizable()
                 .scaledToFill()
-                .frame(width:50,height: 50)
+                .frame(width:60,height: 60)
                 
             
             Text(legend)

@@ -14,6 +14,8 @@ import AVFoundation
 
     var audioPlayer: AVAudioPlayer?
 
+    var videoPlayer: AVPlayer?
+
 //Funciton play sound
 func playSound(sound: String, type: String) {
     
@@ -37,11 +39,9 @@ func playSound(sound: String, type: String) {
                 
             
         }
-    
-    
-    
-    
+
     
 }
 
 }
+

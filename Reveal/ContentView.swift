@@ -25,6 +25,7 @@ struct ContentView: View {
               
             @State private var launchNewGame = false
             @State private var showRevealTitle =  false
+            @State private var showHelp = false
       
     
             @State private var pickedAnimal = ""
@@ -114,6 +115,7 @@ struct ContentView: View {
     }
 
     
+
            
            
            var body: some View {
@@ -127,9 +129,37 @@ struct ContentView: View {
                 
                 
                 
-                           VStack {
+                VStack {
+                            
+    
+                            HStack {
+                            Button(action: {
+                                
+                                withAnimation {
+                                self.showHelp.toggle()
+                                
+                                }
+                            }) {
+                                
+                             Text("Instructions")
+                                .frame(width:150, height: 20)
+                                .background(Color.blue)
+                                .foregroundColor(Color.white)
+                                .cornerRadius(8)
+                                
+                                
+                            }
+                            
+                            }
+                            if showHelp {
+                                
+                              GameInstructions()
+                                .transition(.slide)
+                            }
                             
                             
+                  
+                     
                                
                                Button(action: {
                                    
@@ -146,6 +176,11 @@ struct ContentView: View {
                                 
                                 withAnimation {
                                     self.showRevealTitle.toggle()
+                                }
+                               
+                                withAnimation {
+                                    
+                                    self.showHelp.toggle()
                                 }
                                 
                                 withAnimation {
@@ -164,13 +199,15 @@ struct ContentView: View {
                                         .transition(.slide)
                                         .onAppear() {
                                             
-                                        playSound(sound: "After_School_Jamboree", type: "mp3")
+                                        //playSound(sound: "After_School_Jamboree", type: "mp3")
                                           
                                                 
                                         }
-                                        Spacer()
+                                        Spacer().frame(height:160)
                                         
                                     }
+                                    
+                                   
                                     
                                 
                                 
@@ -240,7 +277,7 @@ struct ContentView: View {
                                                 
                                         }.alert(isPresented: $showCorrectMessageAlert) {
                                             
-                                            Alert(title: Text("Game Alert"), message: Text("Click Circle to begin new game!! \(gameScore.score) Points"), dismissButton: .default(Text("Got it!!")))
+                                            Alert(title: Text("Congratulations!!"), message: Text("Click Circle to begin new game!! \(gameScore.score) Points"), dismissButton: .default(Text("Got it!!")))
                                         }
                                             
                                         
@@ -277,7 +314,7 @@ struct ContentView: View {
                                                 
                                             }
                                         }.alert(isPresented: $showCorrectMessageAlert) {
-                                            Alert(title: Text("Game Alert"), message: Text("Click on circle to begin new game!! \(gameScore.score) Points"), dismissButton: .default(Text("Got it!!")))
+                                            Alert(title: Text("Congratulations!!"), message: Text("Click on circle to begin new game!! \(gameScore.score) Points"), dismissButton: .default(Text("Got it!!")))
                                         }
                                         
                                         
@@ -312,7 +349,7 @@ struct ContentView: View {
                                             }
                                             
                                         }.alert(isPresented: $showCorrectMessageAlert) {
-                                            Alert(title: Text("Game Alert"), message: Text("Click on circle to begin new game!! \(gameScore.score) Points"), dismissButton: .default(Text("Got it!!")))
+                                            Alert(title: Text("Congratulations!!"), message: Text("Click on circle to begin new game!! \(gameScore.score) Points"), dismissButton: .default(Text("Got it!!")))
                                         }
                                         
                                         
@@ -348,7 +385,7 @@ struct ContentView: View {
                                             }
                                             
                                         }.alert(isPresented: $showCorrectMessageAlert) {
-                                            Alert(title: Text("Game Alert"), message: Text("Click on circle to begin new game!!  \(gameScore.score) Points"), dismissButton: .default(Text("Got it!!")))
+                                            Alert(title: Text("Congratulations!!"), message: Text("Click on circle to begin new game!!  \(gameScore.score) Points"), dismissButton: .default(Text("Got it!!")))
                                         }
                                         
                                     }
@@ -380,7 +417,7 @@ struct ContentView: View {
                                         }
                                         
                                         }.alert(isPresented: $showCorrectMessageAlert) {
-                                            Alert(title: Text("Game Alert"), message: Text("Click on circle to begin new game!!  \(gameScore.score) Points"), dismissButton: .default(Text("Got it!!")))
+                                            Alert(title: Text("Congratulations!!"), message: Text("Click on circle to begin new game!!  \(gameScore.score) Points"), dismissButton: .default(Text("Got it!!")))
                                         }
                                         
                                     }//end of Button
@@ -413,7 +450,7 @@ struct ContentView: View {
                                             }
                                             
                                         }.alert(isPresented: $showCorrectMessageAlert) {
-                                            Alert(title: Text("Game Alert"), message: Text("Click on circle to begin new game!!  \(gameScore.score) Points"), dismissButton: .default(Text("Got it!!")))
+                                            Alert(title: Text("Congratulations!!"), message: Text("Click on circle to begin new game!!  \(gameScore.score) Points"), dismissButton: .default(Text("Got it!!")))
                                         }
                                         
                                         
@@ -479,11 +516,10 @@ struct ContentView: View {
             
                           
                             
-                               
+                    }
                            }
                 
-            }
-}
+    }
 }
     
 

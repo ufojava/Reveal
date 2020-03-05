@@ -41,6 +41,10 @@ struct AudioTextFile: View {
             Text("Synthsizer")
         }
     }
+        
+       
+        
+        
     }
 }
 
