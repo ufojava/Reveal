@@ -144,11 +144,11 @@ struct ContentView: View {
                                 }
                             }) {
                                 
-                             Text("Instructions")
+                             Text("Help / Close")
                                 .frame(width:150, height: 30)
                                 .background(Color.blue)
                                 .foregroundColor(Color.white)
-                                .cornerRadius(8)
+                                .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                                 
                                 
                             }
@@ -259,8 +259,8 @@ struct ContentView: View {
                                         .frame(width:400, height: 30)
                                         .background(Color.blue)
                                         .foregroundColor(Color.white)
+                                        .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                                         .font(.custom("chalkboard SE", size: 15))
-                                        .cornerRadius(8)
                                         .transition(.slide)
                                     
                                 

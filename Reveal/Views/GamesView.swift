@@ -233,7 +233,7 @@ struct Rabbit: View {
                     .frame(width:100, height: 30)
                     .background(Color.green)
                     .foregroundColor(Color.white)
-                    .cornerRadius(8)
+                    .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                     .font(.custom("chalkboard SE", size: 15))
                  
                    }
@@ -242,7 +242,7 @@ struct Rabbit: View {
                     .frame(width:200,height: 30)
                     .background(Color.purple)
                     .foregroundColor(Color.white)
-                    .cornerRadius(8)
+                    .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                     .font(.custom("chalkboard SE", size: 15))
                 
                 
@@ -597,7 +597,7 @@ struct Rabbit: View {
                     .frame(width:100,height: 30)
                     .background(Color.blue)
                     .foregroundColor(Color.yellow)
-                    .cornerRadius(8)
+                    .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                     .font(.custom("chalkboard SE", size: 15))
                     
                  
@@ -760,7 +760,7 @@ struct Sheep: View {
                      .frame(width:100, height: 30)
                      .background(Color.green)
                      .foregroundColor(Color.white)
-                     .cornerRadius(8)
+                     .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                      .font(.custom("chalkboard SE", size: 15))
             
                   
@@ -770,7 +770,7 @@ struct Sheep: View {
                      .frame(width:200,height: 30)
                      .background(Color.purple)
                      .foregroundColor(Color.white)
-                     .cornerRadius(8)
+                     .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                      .font(.custom("chalkboard SE", size: 15))
                 
                 
@@ -1133,7 +1133,7 @@ struct Sheep: View {
                 .frame(width:100,height: 30)
                 .background(Color.blue)
                 .foregroundColor(Color.yellow)
-                .cornerRadius(8)
+                .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                 .font(.custom("chalkboard SE", size: 15))
                 
                 
@@ -1275,7 +1275,7 @@ struct Cow: View {
                          .frame(width:100, height: 30)
                          .background(Color.green)
                          .foregroundColor(Color.white)
-                         .cornerRadius(8)
+                         .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                          .font(.custom("chalkboard SE", size: 15))
                       
                         }
@@ -1284,7 +1284,7 @@ struct Cow: View {
                          .frame(width:200,height: 30)
                          .background(Color.purple)
                          .foregroundColor(Color.white)
-                         .cornerRadius(8)
+                         .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                          .font(.custom("chalkboard SE", size: 15))
                 }
             
@@ -1632,7 +1632,7 @@ struct Cow: View {
                         .frame(width:100,height: 30)
                         .background(Color.blue)
                         .foregroundColor(Color.yellow)
-                        .cornerRadius(8)
+                        .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                         .font(.custom("chalkboard SE", size: 15))
                     
                     
@@ -1772,7 +1772,7 @@ struct Horse: View {
                             .frame(width:100, height: 30)
                             .background(Color.green)
                             .foregroundColor(Color.white)
-                            .cornerRadius(8)
+                            .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                             .font(.custom("chalkboard SE", size: 15))
                          
                            }
@@ -1781,7 +1781,7 @@ struct Horse: View {
                             .frame(width:200,height: 30)
                             .background(Color.purple)
                             .foregroundColor(Color.white)
-                            .cornerRadius(8)
+                            .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                             .font(.custom("chalkboard SE", size: 15))
                    }
             
@@ -2129,7 +2129,7 @@ struct Horse: View {
                         .frame(width:100,height: 30)
                         .background(Color.blue)
                         .foregroundColor(Color.yellow)
-                        .cornerRadius(8)
+                        .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                         .font(.custom("chalkboard SE", size: 15))
                     
                     
@@ -2269,7 +2269,7 @@ struct Pig: View {
                              .frame(width:100, height: 30)
                              .background(Color.green)
                              .foregroundColor(Color.white)
-                             .cornerRadius(8)
+                             .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                              .font(.custom("chalkboard SE", size: 15))
                           
                             }
@@ -2278,7 +2278,7 @@ struct Pig: View {
                              .frame(width:200,height: 30)
                              .background(Color.purple)
                              .foregroundColor(Color.white)
-                             .cornerRadius(8)
+                             .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                              .font(.custom("chalkboard SE", size: 15))
                     }
 
@@ -2624,7 +2624,7 @@ struct Pig: View {
                         .frame(width:100,height: 30)
                         .background(Color.blue)
                         .foregroundColor(Color.yellow)
-                        .cornerRadius(8)
+                        .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                         .font(.custom("chalkboard SE", size: 15))
                     
                     
@@ -2764,7 +2764,7 @@ struct Lama: View {
                          .frame(width:100, height: 30)
                          .background(Color.green)
                          .foregroundColor(Color.white)
-                         .cornerRadius(8)
+                         .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                          .font(.custom("chalkboard SE", size: 15))
                       
                         }
@@ -2773,7 +2773,7 @@ struct Lama: View {
                          .frame(width:200,height: 30)
                          .background(Color.purple)
                          .foregroundColor(Color.white)
-                         .cornerRadius(8)
+                         .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                          .font(.custom("chalkboard SE", size: 15))
             }
            
@@ -3118,7 +3118,7 @@ struct Lama: View {
                         .frame(width:100,height: 30)
                         .background(Color.blue)
                         .foregroundColor(Color.yellow)
-                        .cornerRadius(8)
+                        .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                         .font(.custom("chalkboard SE", size: 15))
                     
                     
