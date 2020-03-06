@@ -26,6 +26,8 @@ struct ContentView: View {
             @State private var launchNewGame = false
             @State private var showRevealTitle =  false
             @State private var showHelp = false
+            @State private var showInstructionButton = true
+            @State private var scrollGuessNumberLable = false
       
     
             @State private var pickedAnimal = ""
@@ -131,6 +133,7 @@ struct ContentView: View {
                 
                 VStack {
                             
+                    if showInstructionButton {
     
                             HStack {
                             Button(action: {
@@ -142,7 +145,7 @@ struct ContentView: View {
                             }) {
                                 
                              Text("Instructions")
-                                .frame(width:150, height: 20)
+                                .frame(width:150, height: 30)
                                 .background(Color.blue)
                                 .foregroundColor(Color.white)
                                 .cornerRadius(8)
@@ -157,6 +160,7 @@ struct ContentView: View {
                                 .transition(.slide)
                             }
                             
+                    }
                             
                   
                      
@@ -180,11 +184,23 @@ struct ContentView: View {
                                
                                 withAnimation {
                                     
-                                    self.showHelp.toggle()
+                                    self.showInstructionButton.toggle()
                                 }
                                 
                                 withAnimation {
                                    self.launchNewGame.toggle()
+                                }
+                                
+                                withAnimation {
+                                    
+                                    self.scrollGuessNumberLable.toggle()
+                                    
+                                }
+                                
+                                //Check if the instructions sheet is opened
+                                if self.showHelp == true {
+                                    
+                                    self.showHelp.toggle()
                                 }
                                    
                                }) {
@@ -199,7 +215,7 @@ struct ContentView: View {
                                         .transition(.slide)
                                         .onAppear() {
                                             
-                                        //playSound(sound: "After_School_Jamboree", type: "mp3")
+                                        playSound(sound: "After_School_Jamboree", type: "mp3")
                                           
                                                 
                                         }
@@ -236,11 +252,21 @@ struct ContentView: View {
                                 
                                 if launchNewGame {
                                     
-                                    Text("Can you guess the animal behind the squares??")
-                                    .foregroundColor(Color.yellow)
-                                    .font(.custom("chalkboard SE", size: 15))
-                                        .transition(.move(edge: .bottom))
-                            
+                                    
+                                    if scrollGuessNumberLable {
+                                        
+                                    Text("GUESS THE ANIMAL BEHIND THE LARGE SQUARE !!!")
+                                        .frame(width:400, height: 30)
+                                        .background(Color.blue)
+                                        .foregroundColor(Color.white)
+                                        .font(.custom("chalkboard SE", size: 15))
+                                        .cornerRadius(8)
+                                        .transition(.slide)
+                                    
+                                
+                                       
+                                        
+                                    }
                             HStack {
                                     
                                 

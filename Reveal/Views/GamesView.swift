@@ -171,7 +171,7 @@ struct Rabbit: View {
         var speechText = ""
         
         intToTextConvert = String(gameScore.score)
-        speechText = "Your score is \(intToTextConvert)"
+        speechText = "Your score is \(intToTextConvert), can you guess the animal? if not get another number and try again"
         
         return speechText
         
@@ -220,7 +220,7 @@ struct Rabbit: View {
             Spacer().frame(height: 5)
             
             
-            HStack {
+            HStack(spacing: 10) {
             
             Button(action: {
                              
@@ -229,14 +229,20 @@ struct Rabbit: View {
              }) {
                  
                  
-                 Text("Get Number")
-                    .foregroundColor(Color.green)
+                 Text("GET NUMBER")
+                    .frame(width:100, height: 30)
+                    .background(Color.green)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(8)
                     .font(.custom("chalkboard SE", size: 15))
                  
                    }
                 
-                Text("Click on Square: \(self.revealTile)")
-                    .foregroundColor(Color.yellow)
+                Text("CLICK SQUARE NUMBER: \(self.revealTile)")
+                    .frame(width:200,height: 30)
+                    .background(Color.purple)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(8)
                     .font(.custom("chalkboard SE", size: 15))
                 
                 
@@ -588,9 +594,14 @@ struct Rabbit: View {
             HStack {
 
                 Text("Points: \(self.gameScore.score)")
+                    .frame(width:100,height: 30)
+                    .background(Color.blue)
+                    .foregroundColor(Color.yellow)
+                    .cornerRadius(8)
+                    .font(.custom("chalkboard SE", size: 15))
+                    
                  
-                 
-             }.font(.custom("chalkboard SE", size: 15)).foregroundColor(Color.yellow)
+             }
             
             
          Spacer()
@@ -672,12 +683,26 @@ struct Sheep: View {
            var speechText = ""
            
            intToTextConvert = String(gameScore.score)
-           speechText = "Your score is \(intToTextConvert)"
+           speechText = "Your score is \(intToTextConvert), can you guess the animal? if not get another number and try again"
            
            return speechText
            
            
        }
+    
+    //Variable to conver GetNumner to String
+    var getNumnerConverter: String {
+        
+        let localNumer = String(self.revealTile)
+        var intToTextConvert = ""
+        var speechText = ""
+        
+        intToTextConvert = localNumer
+        speechText = "You number is \(intToTextConvert)"
+        
+        
+        return speechText
+    }
     
     
     //All blank squares
@@ -688,6 +713,7 @@ struct Sheep: View {
     @State private var updatedOrigArray = [Int]()
     
     @State private var revealTile = 0
+    var convertNumSelectionToString = ""
     
     
     //Function to process random numbers
@@ -725,23 +751,36 @@ struct Sheep: View {
             Button(action: {
                              
                  self.processRandomNumber()
+                
                  
              }) {
                  
                  
-                 Text("Get Number")
-                    .foregroundColor(Color.green)
-                    .font(.custom("chalkboard SE", size: 15))
+                 Text("GET NUMBER")
+                     .frame(width:100, height: 30)
+                     .background(Color.green)
+                     .foregroundColor(Color.white)
+                     .cornerRadius(8)
+                     .font(.custom("chalkboard SE", size: 15))
+            
+                  
+                    }
                  
-                   }
+                 Text("CLICK SQUARE NUMBER: \(self.revealTile)")
+                     .frame(width:200,height: 30)
+                     .background(Color.purple)
+                     .foregroundColor(Color.white)
+                     .cornerRadius(8)
+                     .font(.custom("chalkboard SE", size: 15))
                 
-                Text("Click on Square: \(self.revealTile)")
-                    .foregroundColor(Color.yellow)
-                    .font(.custom("chalkboard SE", size: 15))
+                
             }
+            
+            
         
 
          HStack {//Row One
+            
                            
                    FlipTile(tileImage: sheepBackTileOneToggle, blankImage: sheepBackTileOne, animalImage: sheepTileOne)
                    
@@ -1085,13 +1124,22 @@ struct Sheep: View {
                                   
                    })
               }
+            
+            
            
             HStack {
            
                 Text("Points: \(self.gameScore.score)")
+                .frame(width:100,height: 30)
+                .background(Color.blue)
+                .foregroundColor(Color.yellow)
+                .cornerRadius(8)
+                .font(.custom("chalkboard SE", size: 15))
                 
                 
-            }.font(.custom("chalkboard SE", size: 15)).foregroundColor(Color.yellow)
+            }
+            
+            
          Spacer()
        }
         
@@ -1168,7 +1216,7 @@ struct Cow: View {
              var speechText = ""
              
              intToTextConvert = String(gameScore.score)
-             speechText = "Your score is \(intToTextConvert)"
+             speechText = "Your score is \(intToTextConvert), can you guess the animal? if not get another number and try again"
              
              return speechText
              
@@ -1223,15 +1271,21 @@ struct Cow: View {
                  }) {
                      
                      
-                     Text("Get Number")
-                        .foregroundColor(Color.green)
-                        .font(.custom("chalkboard SE", size: 15))
+                     Text("GET NUMBER")
+                         .frame(width:100, height: 30)
+                         .background(Color.green)
+                         .foregroundColor(Color.white)
+                         .cornerRadius(8)
+                         .font(.custom("chalkboard SE", size: 15))
+                      
+                        }
                      
-                       }
-                    
-                    Text("Click on Square: \(self.revealTile)")
-                        .foregroundColor(Color.yellow)
-                        .font(.custom("chalkboard SE", size: 15))
+                     Text("CLICK SQUARE NUMBER: \(self.revealTile)")
+                         .frame(width:200,height: 30)
+                         .background(Color.purple)
+                         .foregroundColor(Color.white)
+                         .cornerRadius(8)
+                         .font(.custom("chalkboard SE", size: 15))
                 }
             
 
@@ -1571,15 +1625,19 @@ struct Cow: View {
                        })
                   }
                
-               
+            
                HStack {
                
                     Text("Points: \(self.gameScore.score) ")
+                        .frame(width:100,height: 30)
+                        .background(Color.blue)
+                        .foregroundColor(Color.yellow)
+                        .cornerRadius(8)
+                        .font(.custom("chalkboard SE", size: 15))
                     
-                
                     
-                    
-                }.font(.custom("chalkboard SE", size: 15)).foregroundColor(Color.yellow)
+                }
+            
             Spacer()
            }
             
@@ -1656,7 +1714,7 @@ struct Horse: View {
         var speechText = ""
         
         intToTextConvert = String(gameScore.score)
-        speechText = "Your score is \(intToTextConvert)"
+        speechText = "Your score is \(intToTextConvert), can you guess the animal? if not get another number and try again"
         
         return speechText
         
@@ -1710,15 +1768,21 @@ struct Horse: View {
                     }) {
                         
                         
-                        Text("Get Number")
-                           .foregroundColor(Color.green)
-                           .font(.custom("chalkboard SE", size: 15))
+                        Text("GET NUMBER")
+                            .frame(width:100, height: 30)
+                            .background(Color.green)
+                            .foregroundColor(Color.white)
+                            .cornerRadius(8)
+                            .font(.custom("chalkboard SE", size: 15))
+                         
+                           }
                         
-                          }
-                       
-                       Text("Click on Square: \(self.revealTile)")
-                           .foregroundColor(Color.yellow)
-                           .font(.custom("chalkboard SE", size: 15))
+                        Text("CLICK SQUARE NUMBER: \(self.revealTile)")
+                            .frame(width:200,height: 30)
+                            .background(Color.purple)
+                            .foregroundColor(Color.white)
+                            .cornerRadius(8)
+                            .font(.custom("chalkboard SE", size: 15))
                    }
             
 
@@ -2062,10 +2126,16 @@ struct Horse: View {
                HStack {
                
                     Text("Points: \(self.gameScore.score) ")
+                        .frame(width:100,height: 30)
+                        .background(Color.blue)
+                        .foregroundColor(Color.yellow)
+                        .cornerRadius(8)
+                        .font(.custom("chalkboard SE", size: 15))
                     
                     
-                }.font(.custom("chalkboard SE", size: 15)).foregroundColor(Color.yellow)
-              Spacer()
+                }
+        
+        Spacer()
            }
             
         }
@@ -2140,7 +2210,7 @@ struct Pig: View {
            var speechText = ""
            
            intToTextConvert = String(gameScore.score)
-           speechText = "Your score is \(intToTextConvert)"
+           speechText = "Your score is \(intToTextConvert), can you guess the animal? if not get another number and try again"
            
            return speechText
            
@@ -2195,15 +2265,21 @@ struct Pig: View {
                      }) {
                          
                          
-                         Text("Get Number")
-                            .foregroundColor(Color.green)
-                            .font(.custom("chalkboard SE", size: 15))
+                         Text("GET NUMBER")
+                             .frame(width:100, height: 30)
+                             .background(Color.green)
+                             .foregroundColor(Color.white)
+                             .cornerRadius(8)
+                             .font(.custom("chalkboard SE", size: 15))
+                          
+                            }
                          
-                           }
-                        
-                        Text("Click on Square: \(self.revealTile)")
-                            .foregroundColor(Color.yellow)
-                            .font(.custom("chalkboard SE", size: 15))
+                         Text("CLICK SQUARE NUMBER: \(self.revealTile)")
+                             .frame(width:200,height: 30)
+                             .background(Color.purple)
+                             .foregroundColor(Color.white)
+                             .cornerRadius(8)
+                             .font(.custom("chalkboard SE", size: 15))
                     }
 
              HStack {//Row One
@@ -2540,14 +2616,20 @@ struct Pig: View {
                                       
                        })
                   }
+        
                
                HStack {
                
                     Text("Points: \(self.gameScore.score) ")
+                        .frame(width:100,height: 30)
+                        .background(Color.blue)
+                        .foregroundColor(Color.yellow)
+                        .cornerRadius(8)
+                        .font(.custom("chalkboard SE", size: 15))
                     
                     
-                }.font(.custom("chalkboard SE", size: 15)).foregroundColor(Color.yellow)
-               
+                }
+          
               Spacer()
            }
             
@@ -2623,7 +2705,7 @@ struct Lama: View {
        var speechText = ""
        
        intToTextConvert = String(gameScore.score)
-       speechText = "Your score is \(intToTextConvert)"
+       speechText = "Your score is \(intToTextConvert), can you guess the animal? if not get another number and try again"
        
        return speechText
        
@@ -2678,15 +2760,21 @@ struct Lama: View {
                  }) {
                      
                      
-                     Text("Get Number")
-                        .foregroundColor(Color.green)
-                        .font(.custom("chalkboard SE", size: 15))
+                     Text("GET NUMBER")
+                         .frame(width:100, height: 30)
+                         .background(Color.green)
+                         .foregroundColor(Color.white)
+                         .cornerRadius(8)
+                         .font(.custom("chalkboard SE", size: 15))
+                      
+                        }
                      
-                       }
-                    
-                    Text("Click on Square: \(self.revealTile)")
-                        .foregroundColor(Color.yellow)
-                        .font(.custom("chalkboard SE", size: 15))
+                     Text("CLICK SQUARE NUMBER: \(self.revealTile)")
+                         .frame(width:200,height: 30)
+                         .background(Color.purple)
+                         .foregroundColor(Color.white)
+                         .cornerRadius(8)
+                         .font(.custom("chalkboard SE", size: 15))
             }
            
 
@@ -3022,13 +3110,22 @@ struct Lama: View {
                                       
                        })
                   }
-               
+            
+          
                HStack {
                
                     Text("Points: \(self.gameScore.score) ")
+                        .frame(width:100,height: 30)
+                        .background(Color.blue)
+                        .foregroundColor(Color.yellow)
+                        .cornerRadius(8)
+                        .font(.custom("chalkboard SE", size: 15))
                     
                     
-                }.font(.custom("chalkboard SE", size: 15)).foregroundColor(Color.yellow)
+                }
+            
+            
+            
                
             Spacer()
            }
