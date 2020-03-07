@@ -78,7 +78,7 @@ struct ContentView: View {
             
             //Read out selection
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                readGameSpeech(word: "Correct answer, well done")
+                readGameSpeech(word: "Correct answer, well done, you final score is \(self.gameScore.score). To play again click circle")
                 
                 
             }
