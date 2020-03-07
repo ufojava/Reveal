@@ -162,6 +162,9 @@ struct Rabbit: View {
     @State private var rabbitTileEightToggle = false
     @State private var rabbitTileNineToggle = false
     
+    //Get Number Button Toggle
+    @State private var getNumberToggle = false
+    
   
    
     //Variable to convert Point to a String
@@ -176,6 +179,20 @@ struct Rabbit: View {
         return speechText
         
         
+    }
+    
+    //Variable to conver GetNumner to String
+    var getNumnerConverter: String {
+        
+        let localNumer = String(revealTile)
+        var intToTextConvert = ""
+        var speechText = ""
+        
+        intToTextConvert = localNumer
+        speechText = "You number is \(intToTextConvert), now reveal the square below"
+        
+        
+        return speechText
     }
     
     
@@ -217,14 +234,16 @@ struct Rabbit: View {
         
         VStack {
             
+        
             Spacer().frame(height: 5)
-            
+        
+           
             
             HStack(spacing: 10) {
             
             Button(action: {
                              
-                 self.processRandomNumber()
+             
                  
              }) {
                  
@@ -235,8 +254,14 @@ struct Rabbit: View {
                     .foregroundColor(Color.white)
                     .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                     .font(.custom("chalkboard SE", size: 15))
+                
+                    .onTapGesture {
+                        self.processRandomNumber()
+                        readGameSpeech(word: self.getNumnerConverter)
+                }
                  
                    }
+                
                 
                 Text("CLICK SQUARE NUMBER: \(self.revealTile)")
                     .frame(width:200,height: 30)
@@ -245,8 +270,12 @@ struct Rabbit: View {
                     .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                     .font(.custom("chalkboard SE", size: 15))
                 
-                
+               
             }
+            
+               
+                
+         
         
                 HStack {//Row One
                     
@@ -272,6 +301,7 @@ struct Rabbit: View {
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                         //Read Current Score
                                         readGameSpeech(word: self.pointConverter)
+                                           
                                         
                                         }
                                     } else {
@@ -693,12 +723,12 @@ struct Sheep: View {
     //Variable to conver GetNumner to String
     var getNumnerConverter: String {
         
-        let localNumer = String(self.revealTile)
+        let localNumer = String(revealTile)
         var intToTextConvert = ""
         var speechText = ""
         
         intToTextConvert = localNumer
-        speechText = "You number is \(intToTextConvert)"
+        speechText = "You number is \(intToTextConvert), now reveal the square below"
         
         
         return speechText
@@ -745,16 +775,15 @@ struct Sheep: View {
             
             Spacer().frame(height: 5)
             
-           
+            VStack {
             HStack {
             
             Button(action: {
                              
-                 self.processRandomNumber()
-                
-                 
+              
              }) {
                  
+              
                  
                  Text("GET NUMBER")
                      .frame(width:100, height: 30)
@@ -762,9 +791,12 @@ struct Sheep: View {
                      .foregroundColor(Color.white)
                      .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                      .font(.custom("chalkboard SE", size: 15))
-            
-                  
+                     .onTapGesture {
+                        self.processRandomNumber()
+                        readGameSpeech(word: self.getNumnerConverter)
                     }
+                  
+                }
                  
                  Text("CLICK SQUARE NUMBER: \(self.revealTile)")
                      .frame(width:200,height: 30)
@@ -776,11 +808,13 @@ struct Sheep: View {
                 
             }
             
-            
+                
+            }
         
 
          HStack {//Row One
             
+        
                            
                    FlipTile(tileImage: sheepBackTileOneToggle, blankImage: sheepBackTileOne, animalImage: sheepTileOne)
                    
@@ -798,6 +832,7 @@ struct Sheep: View {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             //Read Current Score
                             readGameSpeech(word: self.pointConverter)
+                                
                             }
                               
                              } else {
@@ -1129,6 +1164,7 @@ struct Sheep: View {
            
             HStack {
            
+                
                 Text("Points: \(self.gameScore.score)")
                 .frame(width:100,height: 30)
                 .background(Color.blue)
@@ -1223,6 +1259,20 @@ struct Cow: View {
              
          }
     
+    //Variable to conver GetNumner to String
+    var getNumnerConverter: String {
+        
+        let localNumer = String(revealTile)
+        var intToTextConvert = ""
+        var speechText = ""
+        
+        intToTextConvert = localNumer
+        speechText = "You number is \(intToTextConvert), now reveal the square below"
+        
+        
+        return speechText
+    }
+    
     
     
     //All blank squares
@@ -1266,8 +1316,7 @@ struct Cow: View {
                 
                 Button(action: {
                                  
-                     self.processRandomNumber()
-                     
+             
                  }) {
                      
                      
@@ -1277,6 +1326,10 @@ struct Cow: View {
                          .foregroundColor(Color.white)
                          .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                          .font(.custom("chalkboard SE", size: 15))
+                        .onTapGesture {
+                            self.processRandomNumber()
+                            readGameSpeech(word: self.getNumnerConverter)
+                        }
                       
                         }
                      
@@ -1721,6 +1774,20 @@ struct Horse: View {
         
     }
     
+    //Variable to conver GetNumner to String
+    var getNumnerConverter: String {
+        
+        let localNumer = String(revealTile)
+        var intToTextConvert = ""
+        var speechText = ""
+        
+        intToTextConvert = localNumer
+        speechText = "You number is \(intToTextConvert), now reveal the square below"
+        
+        
+        return speechText
+    }
+    
     //All blank squares
     @State private var allBankSquares = [1,2,3,4,5,6,7,8,9]
     
@@ -1763,7 +1830,7 @@ struct Horse: View {
            
                    Button(action: {
                                     
-                        self.processRandomNumber()
+                      
                         
                     }) {
                         
@@ -1774,8 +1841,12 @@ struct Horse: View {
                             .foregroundColor(Color.white)
                             .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                             .font(.custom("chalkboard SE", size: 15))
+                            .onTapGesture {
+                            self.processRandomNumber()
+                            readGameSpeech(word: self.getNumnerConverter)
+                            }
                          
-                           }
+                        }
                         
                         Text("CLICK SQUARE NUMBER: \(self.revealTile)")
                             .frame(width:200,height: 30)
@@ -2217,6 +2288,20 @@ struct Pig: View {
            
        }
     
+    //Variable to conver GetNumner to String
+    var getNumnerConverter: String {
+        
+        let localNumer = String(revealTile)
+        var intToTextConvert = ""
+        var speechText = ""
+        
+        intToTextConvert = localNumer
+        speechText = "You number is \(intToTextConvert), now reveal the square below"
+        
+        
+        return speechText
+    }
+    
     //All blank squares
     @State private var allBankSquares = [1,2,3,4,5,6,7,8,9]
     
@@ -2260,7 +2345,7 @@ struct Pig: View {
             
                     Button(action: {
                                      
-                         self.processRandomNumber()
+                        
                          
                      }) {
                          
@@ -2271,8 +2356,12 @@ struct Pig: View {
                              .foregroundColor(Color.white)
                              .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                              .font(.custom("chalkboard SE", size: 15))
-                          
+                            .onTapGesture {
+                                self.processRandomNumber()
+                                readGameSpeech(word: self.getNumnerConverter)
                             }
+                          
+                        }
                          
                          Text("CLICK SQUARE NUMBER: \(self.revealTile)")
                              .frame(width:200,height: 30)
@@ -2712,6 +2801,20 @@ struct Lama: View {
        
    }
     
+    //Variable to conver GetNumner to String
+    var getNumnerConverter: String {
+        
+        let localNumer = String(revealTile)
+        var intToTextConvert = ""
+        var speechText = ""
+        
+        intToTextConvert = localNumer
+        speechText = "You number is \(intToTextConvert), now reveal the square below"
+        
+        
+        return speechText
+    }
+    
     //All blank squares
     @State private var allBankSquares = [1,2,3,4,5,6,7,8,9]
     
@@ -2755,7 +2858,7 @@ struct Lama: View {
             
                 Button(action: {
                                  
-                     self.processRandomNumber()
+                 
                      
                  }) {
                      
@@ -2766,8 +2869,12 @@ struct Lama: View {
                          .foregroundColor(Color.white)
                          .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.yellow,lineWidth: 2))
                          .font(.custom("chalkboard SE", size: 15))
-                      
+                         .onTapGesture {
+                            self.processRandomNumber()
+                        readGameSpeech(word: self.getNumnerConverter)
                         }
+                      
+                    }
                      
                      Text("CLICK SQUARE NUMBER: \(self.revealTile)")
                          .frame(width:200,height: 30)
