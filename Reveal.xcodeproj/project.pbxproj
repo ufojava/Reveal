@@ -11,6 +11,9 @@
 		0358A484240AEB25006AE95F /* GameTextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0358A483240AEB25006AE95F /* GameTextToSpeech.swift */; };
 		0358A48A240DC854006AE95F /* After_School_Jamboree.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0358A489240DC854006AE95F /* After_School_Jamboree.mp3 */; };
 		0358A48C241057CF006AE95F /* GameInstructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0358A48B241057CF006AE95F /* GameInstructions.swift */; };
+		0358A48E2413AF4C006AE95F /* pig.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0358A48D2413AF4C006AE95F /* pig.mp3 */; };
+		0358A4902413AF63006AE95F /* llama.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0358A48F2413AF63006AE95F /* llama.mp3 */; };
+		0358A4922413B0B1006AE95F /* rabbit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0358A4912413B0B1006AE95F /* rabbit.mp3 */; };
 		03EF37712402EFFA00B04E6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF37702402EFFA00B04E6A /* AppDelegate.swift */; };
 		03EF37732402EFFA00B04E6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF37722402EFFA00B04E6A /* SceneDelegate.swift */; };
 		03EF37752402EFFA00B04E6A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF37742402EFFA00B04E6A /* ContentView.swift */; };
@@ -22,10 +25,7 @@
 		03EF37952408862200B04E6A /* AudioTestFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF37942408862200B04E6A /* AudioTestFile.swift */; };
 		03EF37992408921200B04E6A /* cow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 03EF37982408921200B04E6A /* cow.mp3 */; };
 		03EF379B2408928700B04E6A /* horse.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 03EF379A2408928700B04E6A /* horse.mp3 */; };
-		03EF379D240892C400B04E6A /* pig.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 03EF379C240892C400B04E6A /* pig.mp3 */; };
 		03EF379F2408948700B04E6A /* sheep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 03EF379E2408948700B04E6A /* sheep.mp3 */; };
-		03EF37A2240898E400B04E6A /* rabbit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 03EF37A0240898E400B04E6A /* rabbit.mp3 */; };
-		03EF37A3240898E400B04E6A /* llama.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 03EF37A1240898E400B04E6A /* llama.mp3 */; };
 		03EF37A52408E25200B04E6A /* Swoosh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 03EF37A42408E25100B04E6A /* Swoosh.mp3 */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +34,10 @@
 		0358A483240AEB25006AE95F /* GameTextToSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTextToSpeech.swift; sourceTree = "<group>"; };
 		0358A489240DC854006AE95F /* After_School_Jamboree.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = After_School_Jamboree.mp3; sourceTree = "<group>"; };
 		0358A48B241057CF006AE95F /* GameInstructions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInstructions.swift; sourceTree = "<group>"; };
-		03EF376D2402EFFA00B04E6A /* Reveal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reveal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0358A48D2413AF4C006AE95F /* pig.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pig.mp3; sourceTree = "<group>"; };
+		0358A48F2413AF63006AE95F /* llama.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = llama.mp3; sourceTree = "<group>"; };
+		0358A4912413B0B1006AE95F /* rabbit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rabbit.mp3; sourceTree = "<group>"; };
+		03EF376D2402EFFA00B04E6A /* Animal Squares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animal Squares.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03EF37702402EFFA00B04E6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03EF37722402EFFA00B04E6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		03EF37742402EFFA00B04E6A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -47,10 +50,7 @@
 		03EF37942408862200B04E6A /* AudioTestFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTestFile.swift; sourceTree = "<group>"; };
 		03EF37982408921200B04E6A /* cow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cow.mp3; sourceTree = "<group>"; };
 		03EF379A2408928700B04E6A /* horse.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = horse.mp3; sourceTree = "<group>"; };
-		03EF379C240892C400B04E6A /* pig.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pig.mp3; sourceTree = "<group>"; };
 		03EF379E2408948700B04E6A /* sheep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sheep.mp3; sourceTree = "<group>"; };
-		03EF37A0240898E400B04E6A /* rabbit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rabbit.mp3; sourceTree = "<group>"; };
-		03EF37A1240898E400B04E6A /* llama.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = llama.mp3; sourceTree = "<group>"; };
 		03EF37A42408E25100B04E6A /* Swoosh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Swoosh.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,7 +76,7 @@
 		03EF376E2402EFFA00B04E6A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				03EF376D2402EFFA00B04E6A /* Reveal.app */,
+				03EF376D2402EFFA00B04E6A /* Animal Squares.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,13 +85,13 @@
 			isa = PBXGroup;
 			children = (
 				03EF37982408921200B04E6A /* cow.mp3 */,
-				03EF37A1240898E400B04E6A /* llama.mp3 */,
-				03EF37A0240898E400B04E6A /* rabbit.mp3 */,
+				0358A48F2413AF63006AE95F /* llama.mp3 */,
 				0358A489240DC854006AE95F /* After_School_Jamboree.mp3 */,
 				03EF37A42408E25100B04E6A /* Swoosh.mp3 */,
+				0358A4912413B0B1006AE95F /* rabbit.mp3 */,
 				03EF379A2408928700B04E6A /* horse.mp3 */,
+				0358A48D2413AF4C006AE95F /* pig.mp3 */,
 				03EF379E2408948700B04E6A /* sheep.mp3 */,
-				03EF379C240892C400B04E6A /* pig.mp3 */,
 				03EF37872403979600B04E6A /* Model */,
 				03EF3784240331ED00B04E6A /* Views */,
 				03EF37702402EFFA00B04E6A /* AppDelegate.swift */,
@@ -150,7 +150,7 @@
 			);
 			name = Reveal;
 			productName = Reveal;
-			productReference = 03EF376D2402EFFA00B04E6A /* Reveal.app */;
+			productReference = 03EF376D2402EFFA00B04E6A /* Animal Squares.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -192,14 +192,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				03EF377D2402EFFD00B04E6A /* LaunchScreen.storyboard in Resources */,
-				03EF379D240892C400B04E6A /* pig.mp3 in Resources */,
 				03EF379F2408948700B04E6A /* sheep.mp3 in Resources */,
 				03EF37A52408E25200B04E6A /* Swoosh.mp3 in Resources */,
+				0358A4902413AF63006AE95F /* llama.mp3 in Resources */,
 				03EF377A2402EFFD00B04E6A /* Preview Assets.xcassets in Resources */,
-				03EF37A3240898E400B04E6A /* llama.mp3 in Resources */,
-				03EF37A2240898E400B04E6A /* rabbit.mp3 in Resources */,
+				0358A48E2413AF4C006AE95F /* pig.mp3 in Resources */,
 				0358A48A240DC854006AE95F /* After_School_Jamboree.mp3 in Resources */,
 				03EF37772402EFFD00B04E6A /* Assets.xcassets in Resources */,
+				0358A4922413B0B1006AE95F /* rabbit.mp3 in Resources */,
 				03EF379B2408928700B04E6A /* horse.mp3 in Resources */,
 				03EF37992408921200B04E6A /* cow.mp3 in Resources */,
 			);
@@ -366,7 +366,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ufookoro-me.com.Reveal";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Animal Squares";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -386,7 +386,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ufookoro-me.com.Reveal";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Animal Squares";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

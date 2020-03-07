@@ -78,7 +78,7 @@ struct ContentView: View {
             
             //Read out selection
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                readGameSpeech(word: "Correct answer, well done, you final score is \(self.gameScore.score). To play again click circle")
+                readGameSpeech(word: "Correct answer, well done, your final score is \(self.gameScore.score). To play again click the start circle")
                 
                 
             }
@@ -209,9 +209,9 @@ struct ContentView: View {
                                     
                                     if showRevealTitle == false {
                                       
-                                    Text("REVEAL")
+                                    Text("ANIMAL SQUARES")
                                         .foregroundColor(Color.yellow)
-                                        .font(.custom("chalkboard SE", size: 60))
+                                        .font(.custom("chalkboard SE", size: 35))
                                         .transition(.slide)
                                         .onAppear() {
                                             

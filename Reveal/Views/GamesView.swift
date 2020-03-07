@@ -189,7 +189,7 @@ struct Rabbit: View {
         var speechText = ""
         
         intToTextConvert = localNumer
-        speechText = "You number is \(intToTextConvert), now reveal the square below"
+        speechText = "Your number is \(intToTextConvert), now reveal the square below"
         
         
         return speechText
@@ -728,7 +728,7 @@ struct Sheep: View {
         var speechText = ""
         
         intToTextConvert = localNumer
-        speechText = "You number is \(intToTextConvert), now reveal the square below"
+        speechText = "Your number is \(intToTextConvert), now reveal the square below"
         
         
         return speechText
@@ -1267,7 +1267,7 @@ struct Cow: View {
         var speechText = ""
         
         intToTextConvert = localNumer
-        speechText = "You number is \(intToTextConvert), now reveal the square below"
+        speechText = "Your number is \(intToTextConvert), now reveal the square below"
         
         
         return speechText
@@ -1782,7 +1782,7 @@ struct Horse: View {
         var speechText = ""
         
         intToTextConvert = localNumer
-        speechText = "You number is \(intToTextConvert), now reveal the square below"
+        speechText = "Your number is \(intToTextConvert), now reveal the square below"
         
         
         return speechText
@@ -2296,7 +2296,7 @@ struct Pig: View {
         var speechText = ""
         
         intToTextConvert = localNumer
-        speechText = "You number is \(intToTextConvert), now reveal the square below"
+        speechText = "Your number is \(intToTextConvert), now reveal the square below"
         
         
         return speechText
@@ -2809,7 +2809,7 @@ struct Lama: View {
         var speechText = ""
         
         intToTextConvert = localNumer
-        speechText = "You number is \(intToTextConvert), now reveal the square below"
+        speechText = "Your number is \(intToTextConvert), now reveal the square below"
         
         
         return speechText
